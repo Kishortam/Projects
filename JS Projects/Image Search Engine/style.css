@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(29, 26, 22);
+    color: white;  
+}
+/* title */
+h1{ 
+    text-align: center;
+    font-weight: 500;
+    margin: 50px auto 30px;
+    color: lawngreen;
+}
+/* input and search button part */
+form{
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    height: 50px;
+    background-color: rgb(72, 72, 72);
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+form input{
+    flex: 1;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: white;
+    font-size: 18px;
+    padding: 0 30px;
+}
+form input::placeholder{
+    color: rgb(185, 181, 181);
+    font-size: 18px;
+}
+form button{
+    padding: 0 30px;
+    height: 100%;
+    background-color: lawngreen;
+    color: rgb(72, 72, 72);
+    font-size: 18px;
+    border: 0;
+    outline: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+}
+form button:hover{
+    background-color: rgb(161, 248, 74);  
+}
+#show-more-btn{
+    width: 120px;
+    padding: 10px 20px;
+    background-color: lawngreen;
+    color: rgb(72, 72, 72);
+    border: 0;
+    outline: 0;
+    margin: 10px auto 100px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none ;
+}
+/* search result area columns*/
+#search-result{
+    width: 80%;
+    margin: 100px auto 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+/* resulted images appearance */
+#search-result img{
+    width: 100%;
+    height: 230px;
+    border-radius: 5px;
+    object-fit: cover;
+}
