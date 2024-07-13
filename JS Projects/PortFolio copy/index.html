@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kishor's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/60301b9e7a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- -----header with menu --------- -->
+    <div id="hero">
+        <div class="container">
+            <div class="logo-class">
+                <img src="images/logoK1.png" class="logo">
+            <nav>
+                <ul id="sidemenu">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <!-- for small screen x icon -->
+                     <i class="fas fa-times" onclick="closeMenu()"></i>
+                </ul>
+                <!-- for small screen, menu bar -->
+                 <i class="fas fa-bars" onclick="openMenu()"></i>
+            </nav>
+            </div>
+    
+            <div class="header-text">
+                <p>Software Developer</p>
+                <h1>Hi, I'm <span>Kishor Tambe</span> <br> from Mumbai</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- -----------about--- -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/file (2).png">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Hello! I'm Kishor Tambe, a passionate software developer with over 2 years of experience in building dynamic and responsive web applications. 
+                        I hold Software Developer degree from Scaler Academy.</p>
+
+                    <p>My technical expertise includes proficiency in JavaScript, React, Node.js, and Java.
+                        I have a strong foundation in front-end development, coupled with a robust understanding of back-end systems and databases.</p>
+
+                    <p>I am deeply passionate about technology and continuously strive to learn and adopt new tools and frameworks.
+                        I believe in the power of technology to solve real-world problems and enhance the user experience. 
+                        Feel free to browse through my portfolio to see my work, and don't hesitate to reach out if you'd like to collaborate or just chat about tech!</p>
+
+                    <p>Let's connect and create something amazing together!</p>
+                    
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="openTab('skills')">Skills</p>
+                        <p class="tab-links" onclick="openTab('experience')">Experience</p>
+                        <p class="tab-links" onclick="openTab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Web Development</span> <br>MERN Stack</li>
+                            <li><span>Databases</span> <br>SQL, MongoDB</li>
+                            <li><span>Programming Language</span> <br>Java</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2018 - current</span> <br>sales Manager at Anha - Art & Artifacts</li>
+                            <li><span>2017 - 2018</span> <br>Tally Operator at DPW</li>
+                            <li><span>2017</span> <br>Stewart at Cafe Markivs</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2023 - current</span> <br>Software Engineering from Scaler University</li>
+                            <li><span>2017</span> <br>BSc from Mumbai University</li>
+                            <li><span>2012</span> <br>HSC from Elphinston College</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- --------services-------- -->
+     <!--
+     <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web Design</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta beatae aperiam consectetur pariatur amet voluptas tempore odio labore cumque, omnis laboriosam aut. Blanditiis, numquam repellendus.</p>
+                    <a href="#">learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-crop"></i>
+                    <h2>UI/UX Design</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta beatae aperiam consectetur pariatur amet voluptas tempore odio labore cumque, omnis laboriosam aut. Blanditiis, numquam repellendus.</p>
+                    <a href="#">learn more</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-app-store-ios"></i>
+                    <h2>App Design</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta beatae aperiam consectetur pariatur amet voluptas tempore odio labore cumque, omnis laboriosam aut. Blanditiis, numquam repellendus.</p>
+                    <a href="#">learn more</a>
+                </div>
+            </div>
+        </div>
+     </div>
+    -->
+
+     <!-- Portfolio------------ -->
+     <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="./images/DropDown Menu.png">
+                    <!-- when we click on my work cards, the related info will cover that particular card -->
+                    <div class="layer">
+                        <h3>Social Media App</h3>
+                        <p>The app connects you to the talented people around the world. download it from play store</p>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="./images/music-player.png">
+                    <div class="layer">
+                        <h3>Music App</h3>
+                        <p>The app connects you to the talented people around the world. download it from play store</p>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="./images/image-search.png">
+                    <div class="layer">
+                        <h3>Image Searching App</h3>
+                        <p>The app connects you to the talented people around the world. download it from play store</p>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn">See more</a>
+        </div>
+     </div>
+
+     <!-- contact -->
+      <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fas fa-paper-plane"></i><a href="mailto:kishortam@gmail.com">kishortam@gmail.com</a></p>
+                    <p><i class="fas fa-phone"></i><a href="tel:+919892623219">9892623219</a></p>
+                    
+                    <div class="social-icons">
+                        <a href="http://www.linkedin.com/in/kishor-tambe" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="http://www.github.com/Kishortam" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/kishor.tambe.96?igsh=MWNhZ3FjOXVobnJhYQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://scaler-co.slack.com/team/U04NMJU3XB5" target="blank"><i class="fab fa-slack"></i></a>  
+                        <a href="https://wa.me/9892623219" target="blank"><i class="fab fa-whatsapp"></i></a>                       
+                    </div>
+                    <a href="./images/Kishor_Resume_PDF.pdf" download class="btn btn2">Download CV</a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- copyright -->
+        <div class="copyright">
+            <p>Made with <i class="fas fa-heart"></i> of GreatStack</p>
+        </div>
+      </div>
+
+
+    <script src="script.js"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx-yae-uh7OjZR6PSx5D9NNX97j4N4H1n6rlTx1aiWZMO5_jVZIyUDmbtcixSHxFpwodA/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        const msg = document.getElementById('msg');
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message sent successfully!"
+                setTimeout(function(){
+                    msg.innerHTML = "";
+                },5000)
+                form.reset();
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
