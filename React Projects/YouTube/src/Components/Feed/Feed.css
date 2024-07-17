@@ -12,13 +12,13 @@
 .card h2{
     font-size: 16px;
     font-weight: 600;
-    color: black;
+    color: #161616;
     margin: 5px 0;
 }
 .card h3{
     font-size: 14px;
     font-weight: 600;
-    color: #555;
+    color: #161616;
     margin: 6px 0;
 }
 .card p{

@@ -17,3 +17,9 @@
     font-size: 14px;
     margin-bottom: 6px;
 }
+
+@media (max-width:900px){
+    .recommended{
+        flex-basis: 100%;
+    }
+}

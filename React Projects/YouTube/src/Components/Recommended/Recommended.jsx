@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from "react";
-import "./recommended.css";
+import React, { useEffect, useState } from "react"
+import "./recommended.css"
+import { API_KEY, val_convertor } from "../../data"
+import { Link } from "react-router-dom"
 
-import { API_KEY, val_convertor } from "../../data";
-import { Link } from "react-router-dom";
-
-const Recommended = ({ categoryId }) => {
+const Recommended = ({categoryId}) => {
   const [apiData, setApiData] = useState([]);
 
   const fetchData = async () => {
-    const relatedVideo_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=45&regionCode=IN&videoCategoryId=${categoryId}&key=${API_KEY}`
+    const relatedVideo_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=IN&videoCategoryId=${categoryId}&key=${API_KEY}`
     await fetch(relatedVideo_url)
       .then((res) => res.json())
       .then((data) => setApiData(data.items));
-  };
+  }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // this is related to recommend tab, because of commenting it its runnig succefully
+  // but recommended tab is not showing, looking for solution
 
+  // useEffect(() => {
+  //   fetchData();
+  // },[]);
+  
 
   return (
     <div className="recommended">

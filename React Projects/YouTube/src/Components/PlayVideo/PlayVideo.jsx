@@ -23,26 +23,32 @@ const PlayVideo = () => {
     const fetchVideoData = async ()=>{
         // fetching videos data
         const videoDetails_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${API_KEY}`
-        await fetch(videoDetails_url).then(res => res.json()).then(data => setApiData(data.items[0]))
+        await fetch(videoDetails_url)
+        .then(res => res.json())
+        .then(data => setApiData(data.items[0]));
     }
 
     const fetchOtherData = async () => {
         // fetching channel data
-        const channelData_url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${apiData.snippet.channelId}&key=${API_KEY}`
-            await fetch(channelData_url).then(res => res.json()).then(data => setChannelData(data.items[0]))
+            const channelData_url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${apiData.snippet.channelId}&key=${API_KEY}`
+            await fetch(channelData_url)
+            .then(res => res.json())
+            .then(data => setChannelData(data.items[0]))
 
             // fetching comment data
-            const comment_url = `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxresults=50&videoId=${videoId}&key=${API_KEY}`
-            await fetch(comment_url).then(res => res.json()).then(data => setCommentData(data.items))
+            const comment_url = `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${videoId}&key=${API_KEY}`
+            await fetch(comment_url)
+            .then((res) => res.json())
+            .then((data) => setCommentData(data.items))
         }
 
     useEffect(()=>{
         fetchVideoData();
-    }, [videoId])
+    },[videoId])
 
     useEffect(()=>{
         fetchOtherData();
-    }, [apiData]);
+    },[apiData]);
 
 
 
@@ -50,13 +56,13 @@ const PlayVideo = () => {
   return (
     <div className='play-video'>
         {/* <video src={video1} controls autoPlay muted></video> */}
-        <iframe src={`https://www.youtube.com/embed/${videoId}?autoplay=1 `} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+        <iframe src={`https://www.youtube.com/embed/${videoId}?autoplay=1`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         <h3>{apiData?apiData.snippet.title:"Title Here"}</h3>
         <div className="play-video-info">
             <p>{apiData?val_convertor(apiData.statistics.viewCount):"16K"} views &bull; {apiData?moment(apiData.snippet.publishedAt).fromNow():""}</p>
             <div>
-                <span><img src={like} alt="" />{apiData?val_convertor(apiData.statistics.likeCount):"123"}</span>
-                <span><img src={dislike} alt="" />2</span>
+                <span><img src={like} alt="" />{apiData?val_convertor(apiData.statistics.likeCount):123}</span>
+                <span><img src={dislike} alt="" /></span>
                 <span><img src={share} alt="" />Share</span>
                 <span><img src={save} alt="" />Save</span>
             </div>

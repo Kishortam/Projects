@@ -1,5 +1,5 @@
 .container{
-    background: #f9f9f9;
+    background: #fffdfd;
     padding-left: 17%;
     padding-right: 2px;
     padding-top: 20px;
@@ -7,4 +7,12 @@
 }
 .large-container{
     padding-left: 7%;
+}
+
+/* responsive */
+@media (max-width:900px){
+    .large-container, .container{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
