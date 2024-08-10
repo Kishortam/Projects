@@ -10,6 +10,9 @@
     gap: 10px;
     overflow-x: hidden;
 }
+.card-list::-webkit-scrollbar{
+    display: none;
+}
 .card-list img{
     width: 240px;
     border-radius: 4px;
