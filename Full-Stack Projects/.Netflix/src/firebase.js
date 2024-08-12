@@ -4,7 +4,7 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut} from "firebase/auth";
-import {addDoc, collection, getFireStore} from "firebase/firestore";
+import {addDoc, collection, getFirestore} from "firebase/firestore";
 import { toast } from "react-toastify";
 
 // Your web app's Firebase configuration
@@ -22,7 +22,7 @@ const app = initializeApp(firebaseConfig);
 
 
 const auth = getAuth(app);
-const db = getFireStore(app);
+const db = getFirestore;
 
 // user Sign up function
 const signup = async(name, email, password)=>{

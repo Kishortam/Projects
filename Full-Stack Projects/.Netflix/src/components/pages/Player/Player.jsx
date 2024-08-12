@@ -18,6 +18,13 @@ const Player = () => {
   })
 
   // paste code from tmdb
+  const options = {
+    method: 'GET',
+    headers: {
+      accept : 'application/json',
+      Authorization: 'Bearer 6fc0aa456d8e2b655c087b81d5c403bf.eyJhdWQiOiI2ZmMwYWE0NTZkOGUyYjY1NWMwODdiODFkNWM0MDNiZiIsIm5iZiI6MTcyMzQwMzc2Ni4yMDg2NzgsInN1YiI6IjY2YjkwYmViNTMwODAzN2I2MzVmNGM0MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.RU3e4aIeVOYW7XmzXsXSu1Cf7MECvIWg_nTGo_J-ckQ'
+    }
+  };
 
   useEffect(()=>{
     // fetching a data from TMDB database using API key
