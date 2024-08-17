@@ -3,7 +3,8 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import Login from './pages/Login/Login'
 import Chat from './pages/Chat/Chat'
 import ProfileUpdate from './pages/ProfileUpdate/ProfileUpdate'
-import {ToastContainer, toast} from 'react-toastify'
+// imported from react-toastify/gist
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './config/firebase'
@@ -12,28 +13,27 @@ import { AppContext } from './context/AppContext'
 const App = () => {
 
   const navigate = useNavigate();
-
-  // to use context
   const {loadUserData} = useContext(AppContext)
 
+  // it will manage all state of login, and performs this method
   useEffect(()=>{
-    // while authentication done, if user found & and successfully logged in it will redirect to chat page
-    // else it will still be at login page
     onAuthStateChanged(auth, async(user)=>{
       if(user){
-        navigate('/chat')
+        navigate('/chat'); // if we have authenticate user, then we redirect it to chat page
+        // console.log(user);
         await loadUserData(user.uid)
       }
       else{
-        navigate('/')
+        navigate('/'); // if user dont found or doesn't authenticate redirect it to login page
       }
     })
-  })
+  }, []);
 
   return (
     <>
     <ToastContainer/>
     <Routes>
+      {/* Routes to pages */}
       <Route path='/' element={<Login/>}/>
       <Route path='/chat' element={<Chat/>}/>
       <Route path='/profile' element={<ProfileUpdate/>}/>
