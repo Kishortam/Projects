@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './leftSide.css'
 import assets from '../../assets/assets'
 import { useNavigate } from 'react-router-dom'
@@ -10,7 +10,7 @@ import { toast } from 'react-toastify'
 const LeftSideBar = () => {
     const navigate = useNavigate();
 
-    const {userData, chatData, chatUser, setChatUser, messagesId, setMessagesId} = useContext(AppContext);
+    const {userData, chatData, chatUser, setChatUser, messagesId, setMessagesId, chatVisible, setChatVisible} = useContext(AppContext);
     const [user, setUser] = useState(null);
     const [showSearch, setShowSearch] = useState(false);
 
@@ -82,6 +82,20 @@ const LeftSideBar = () => {
                     messageSeen:true
                 })
             })
+
+            const uSnap = await getDoc(doc(db,"users", user.id));
+            const uData = uSnap.data();
+            setChat({
+                messagesId:newMessageRef.id,
+                lastMessage: "",
+                rId:user.id,
+                updatedAt:Date.now(),
+                messageSeen:true,
+                userData:uData
+            })
+            setShowSearch(false);
+            setChatVisible(true)
+
         } catch (error) {
             toast.error(error.message)
             console.error(error)
@@ -101,13 +115,26 @@ const LeftSideBar = () => {
         await updateDoc(userChatsRef,{
             chatsData:userChatsData.chatsData
         })
+        setChatVisible(true);
     } catch (error) {
         toast.error(error.message)
     }
     }
 
+    useEffect(()=>{
+        const updateChatUserData = async ()=>{
+            if(chatUser){
+                const userRef = doc(db, "users", chatUser.userData.id);
+                const userSnap = await getDoc(userRef);
+                const userData = userSnap.data();
+                setChatUser(prev=>({...prev, userData:userData}))
+            }
+        }
+        updateChatUserData();
+    },[chatData])
+
   return (
-    <div className='ls'>
+    <div className={`ls ${chatVisible ? 'hidden' : " "}`}>
         <div className="ls-top">
             <div className="ls-nav">
                 <img src={assets.logo} className='logo' />
@@ -121,6 +148,8 @@ const LeftSideBar = () => {
                     </div>
                 </div>
             </div>
+
+            {/* to search friends */}
             <div className="ls-search">
                 <img src={assets.search_icon} alt="" />
                 <input onChange={inputHandler} type="text" placeholder='search here' />

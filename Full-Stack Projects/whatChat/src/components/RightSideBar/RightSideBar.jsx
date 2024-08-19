@@ -33,7 +33,7 @@ const RightSideBar = () => {
         <div className="rs-media">
             <p>Media</p>
             <div>
-              {msgImages.map((url, index)=>(
+              {msgImages.map((url,  index)=>(
                 <img onClick={()=> window.open(url)} src={url} key={index}/>
               ))}
                 {/* <img src={assets.pic1} alt="" />

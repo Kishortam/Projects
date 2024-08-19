@@ -33,8 +33,8 @@ const App = () => {
     <>
     <ToastContainer/>
     <Routes>
-      {/* Routes to pages */}
-      <Route path='/' element={<Login/>}/>
+      {/* Routes to pages: on opening a webpage by default login page will appear*/}
+      <Route path='/' element={<Login/>}/> 
       <Route path='/chat' element={<Chat/>}/>
       <Route path='/profile' element={<ProfileUpdate/>}/>
     </Routes>
