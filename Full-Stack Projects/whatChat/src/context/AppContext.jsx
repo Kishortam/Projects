@@ -2,6 +2,7 @@ import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
 import { createContext, useEffect, useState } from "react";
 import { auth, db } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 // Skeleton of AppContext
 // export const AppContext = createContext();
@@ -30,8 +31,8 @@ export const AppContext = createContext();
 const AppContextProvider = (props) =>{
 
     const navigate = useNavigate();
-    const [userData, setUserData] = useState(null);
-    const [chatData, setChatData] = useState(null);
+    const [userData, setUserData] = useState(null); // to store user data in DB
+    const [chatData, setChatData] = useState(null); // to store chat data in DB
     const [messagesId, setMessagesId] = useState(null);
     const [messages, setMessages] = useState([]);
     const [chatUser, setChatUser] = useState(null);
@@ -44,7 +45,7 @@ const AppContextProvider = (props) =>{
             const userData = userSnap.data();
             setUserData(userData); // we'll store user data into userData variable
 
-            // if users avatar & name is available, then redirect it to chat page, else on profile page to upload it
+            // if users avatar & name is available, then navigate it to chat page, else on profile page to upload it
             if(userData.avatar && userData.name){
                 navigate('/chat');
             }
@@ -63,7 +64,8 @@ const AppContextProvider = (props) =>{
                 }
             }, 60000);
         } catch (error) {
-            
+            console.error(error);
+            toast.error(error.message);
         }
     }
 

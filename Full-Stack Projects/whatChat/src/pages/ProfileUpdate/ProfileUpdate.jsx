@@ -12,9 +12,9 @@ import { AppContext } from '../../context/AppContext';
 const ProfileUpdate = () => {
 
   const navigate = useNavigate();
-  const [image, setImage] = useState(false);
-  const [name, setName] = useState("");
-  const [bio, setBio] = useState("");
+  const [image, setImage] = useState(false); // to setup profile picture
+  const [name, setName] = useState("");  // to store name, when profile setup
+  const [bio, setBio] = useState(""); // to store bio, when profile setup
   const [uid, setUid] = useState("");
   const [prevImage, setPrevImage] = useState("");
   const {setUserData} = useContext(AppContext);

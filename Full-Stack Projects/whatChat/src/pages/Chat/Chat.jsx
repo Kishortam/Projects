@@ -10,12 +10,14 @@ const Chat = () => {
   const {chatData, userData} = useContext(AppContext);
   const [loading, setLoading] = useState(true);
 
+  
   useEffect(()=>{
-    if(chatData && userData){
+    if(chatData && userData){ // if both chatData & userData is available make loading false
       setLoading(false);
     }
   },[chatData,userData ])
 
+  // while chat data is loading, we can show 'loading'
   return (
     <div className='chat'>
       {

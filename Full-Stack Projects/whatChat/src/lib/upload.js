@@ -35,7 +35,7 @@ uploadTask.on('state_changed',
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          resolve(downloadURL)
+          resolve(downloadURL) 
       });
     }
   );
@@ -45,4 +45,4 @@ uploadTask.on('state_changed',
 }
 
 
-export default upload
+export default upload;

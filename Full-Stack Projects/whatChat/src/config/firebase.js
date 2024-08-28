@@ -1,3 +1,5 @@
+// Basic code copied from firebase
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from "firebase/auth";
@@ -29,10 +31,11 @@ const signup = async (username, email, password) =>{
     try {
         const res = await createUserWithEmailAndPassword(auth, email, password);
         const user = res.user;
-        // users collection
+        // users collection : it will show all data of below attributes in Firebase DB
         await setDoc(doc(db, "users", user.uid),{
             id:user.uid,
             username:username.toLowerCase(),
+            email,
             name:"",
             avatar:"",
             bio:"Hey, there I am using whatChat",

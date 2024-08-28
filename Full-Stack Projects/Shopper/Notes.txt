@@ -1,0 +1,16 @@
+=> timeline : 3hrs HTML & CSS, 2 Hrs Media querise for Responsivness => 1st 5hrs of Frontend 
+=> create app
+=> install react-router-dom
+=> create components folder to create diff. components, pages folder to create web pages & context folder to to create context api
+=> Navbar.jsx & Navbar.css for navigation bar of webpage.
+=> pages => shop.jsx => loginSignup.jsx => shopCategory.jsx => product.jsx => cart.jsx
+=> create routes for pages using BrowserRoutes, mount routes in App.js
+=> create a Hero.jsx and css under components. hero is the main banner of frontpage.
+=> shop.jsx is the main page, it consist many components like hero,
+=> create item.jsx & css, popular.jsx & css
+=> done frontend with html, css and responsive media queries.
+
+=> like frontend, create backend and admin folders
+=> Express.js for backend and JS web token for user authentication
+=> we use MongoDB database atlas and to store images we use multer, corse to access backend
+=> use npm init, install express, install jsonwebtoken, install mongoose, install multer, install cors

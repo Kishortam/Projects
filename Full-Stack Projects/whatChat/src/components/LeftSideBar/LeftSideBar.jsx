@@ -3,7 +3,7 @@ import './leftSide.css'
 import assets from '../../assets/assets'
 import { useNavigate } from 'react-router-dom'
 import { arrayUnion, collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore'
-import { db } from '../../config/firebase'
+import { db, logout } from '../../config/firebase'
 import { AppContext } from '../../context/AppContext'
 import { toast } from 'react-toastify'
 
@@ -73,7 +73,7 @@ const LeftSideBar = () => {
                 })
             })
 
-            await updateDoc(doc(chatsRef, user.id),{
+            await updateDoc(doc(chatsRef, userData.id),{
                 chatsData:arrayUnion({
                     messageId:newMessageRef.id,
                     lastMessage:"",
@@ -102,6 +102,7 @@ const LeftSideBar = () => {
         }
     }
 
+    // when we click on a user, chat related to user should open
     const setChat = async (item)=>{
     try {
         setMessagesId(item.messageId);
@@ -144,7 +145,7 @@ const LeftSideBar = () => {
                     <div className="sub-menu">
                         <p onClick={()=> navigate('/profile')}>Edit Profile</p>
                         <hr />
-                        <p>Logout</p>
+                        <p onClick={logout}>Logout</p>
                     </div>
                 </div>
             </div>

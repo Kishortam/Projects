@@ -12,19 +12,19 @@ import { AppContext } from './context/AppContext'
 
 const App = () => {
 
-  const navigate = useNavigate();
-  const {loadUserData} = useContext(AppContext)
+  const navigate = useNavigate(); // to navigate a user
+  const {loadUserData} = useContext(AppContext) // using AppContext
 
-  // it will manage all state of login, and performs this method
+  // whenever we login or logout, this method will execute
   useEffect(()=>{
     onAuthStateChanged(auth, async(user)=>{
       if(user){
-        navigate('/chat'); // if we have authenticate user, then we redirect it to chat page
+        navigate('/chat'); // if we have authenticate user, then we navigate it to chat page
         // console.log(user);
         await loadUserData(user.uid)
       }
       else{
-        navigate('/'); // if user dont found or doesn't authenticate redirect it to login page
+        navigate('/'); // if user dont found or doesn't authenticate navigate it to login page
       }
     })
   }, []);

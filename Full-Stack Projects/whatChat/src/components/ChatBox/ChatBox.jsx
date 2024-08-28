@@ -57,7 +57,7 @@ const ChatBox = () => {
                     messages: arrayUnion({
                         sId:userData.id,
                         image:fileUrl,
-                        createdAt: new date()
+                        createdAt:new Date()
                     })
                 })
 
@@ -88,7 +88,7 @@ const ChatBox = () => {
 
     // timestamp of msg
     const convertTimestamp = (Timestamp) =>{
-         let date = Timestamp.toDate();
+        let date = Timestamp.toDate();
         const hour = date.getHours();
         const minute = date.getMinutes();
         if(hour > 12){
@@ -98,12 +98,13 @@ const ChatBox = () => {
             return hour+12 + ":" + minute + " AM";
         }
     }
+    
 
     useEffect(()=>{
         if(messagesId){
             const unSub = onSnapshot(doc(db, 'messages', messagesId),(res)=>{
                 setMessages(res.data().messages.reverse());
-                console.log(res.data().messages.reverse());
+                //console.log(res.data().messages.reverse());
             })
             return ()=>{
                 unSub();
@@ -157,4 +158,4 @@ const ChatBox = () => {
   </div>
 }
 
-export default ChatBox
+export default ChatBox;
