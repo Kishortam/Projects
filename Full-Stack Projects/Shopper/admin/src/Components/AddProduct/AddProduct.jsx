@@ -4,7 +4,6 @@ import upload_area from '../../assets/upload_area.svg'
 
 const AddProduct = () => {
 
-  
   const [image, setImage] = useState(false);
   const [productDetails, setProductDetails] = useState({
     name:"",
@@ -26,24 +25,23 @@ const AddProduct = () => {
   }
 
   // when clicked on add button, add product to mongoDB database
-  const add_product = async()=>{
-    console.log(productDetails)
+  const Add_Product = async()=>{
+    console.log(productDetails);
     let responseData;
-    
     let product = productDetails;
 
-    let formData = new formData();
-    formData.append('product', image)
+    let formData = new FormData();
+    formData.append('product', image); 
 
     await fetch('http://localhost:4000/upload',{
       method:'POST',
       headers:{
-        Accept:'Application/json',
+        Accept:'application/json',
       },
       body:formData,
     })
     .then((res)=> res.json())
-    .then((data)=>{responseData = data});
+    .then((data)=>{responseData = data})
 
     if(responseData.success){
       product.image = responseData.image_url;
@@ -98,7 +96,7 @@ const AddProduct = () => {
         <input onChange={imageHandler} type="file" name='image' id='file-input' hidden />
       </div>
 
-      <button className='btn' onClick={() => {add_product()}}>ADD</button>
+      <button className='btn' onClick={()=> {Add_Product()}}>ADD</button>
       </div>
   )
 }

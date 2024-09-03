@@ -5,12 +5,12 @@ import Items from './Items'
 
 const NewCollections = () => {
 
-  const [new_collection, setNewCollection] = useState([]);
+  const [new_collection, setNew_Collection] = useState([]);
 
   useEffect(()=>{ // fetch API, to fetch newcollections from backend
     fetch('http://localhost:4000/newcollections')
     .then((res) => res.json())
-    .then((data) => setNewCollection(data));
+    .then((data) => setNew_Collection(data));
   },[])
 
   return (

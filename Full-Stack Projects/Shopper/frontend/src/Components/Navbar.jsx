@@ -2,7 +2,7 @@ import React, { useContext, useState, useRef } from 'react'
 import './Navbar.css'
 import logo from '../Components/Assets/logo.png'
 import cart_icon from '../Components/Assets/cart_icon.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ShopContext } from '../Context/ShopContext'
 import nav_dropdown from '../Components/Assets/nav_dropdown.png'
 
@@ -22,7 +22,7 @@ const dropdown_toggle = (e) =>{
     <div className='navbar'>
          <div className="nav-logo">
             <img src={logo} alt="" />
-            <p>SHOPPER</p>
+            <Link to={"/"}><p>SHOPPER</p></Link>
         </div>
 
         {/* when screen is smaller size only menu icon will show, not a list of menu, to open menu list click on arrow icon */}

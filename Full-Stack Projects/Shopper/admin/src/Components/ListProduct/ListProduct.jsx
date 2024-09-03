@@ -17,9 +17,9 @@ const ListProduct = () => {
     fetchInfo();
   },[])
 
-  // when clicked on cross icon, product should be remove from list
+  // when clicked on cross icon, product should be remove from list 
   const removeProduct = async(id) =>{
-    await fetch('http://localhost:4000/removeproduct',{
+    await fetch('http://localhost:4000/removeproduct',{ // already created in backend folder/index.js
       method:'POST',
       headers:{
         Accept: 'application/json',

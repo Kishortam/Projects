@@ -1,26 +1,28 @@
-const express = require("express");
+// import express, { urlencoded, json, static } from "express";
+const express = require('express');
 const app = express();
 const mongoose = require("mongoose");
-const multer = require("multer");
 const jwt = require("jsonwebtoken");
+const multer = require("multer");
 const cors = require("cors");
 const path = require("path"); // using path we can get access backend directory to express app
-const { error, log } = require("console");
-const { type } = require("os");
+
 const port = 4000;
 
 //moddleware
-app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
 
-// Database Connection with MongoDB
+// Database Connection with MongoDB  // first create a project in mongoDB
 mongoose.connect("mongodb+srv://kishortam:5C4fPEnZSbF9b5gd@cluster0.zpjo4.mongodb.net/shopper")
 // now mongoDB is connected with express
 
 
-// API creation
 
+// *Try Running All API's on Thunder Client or Postman and check in mongoDB whether it reflects
+
+
+// API creation  
 app.get("/", (req, res)=>{
     res.send("Express app is running");
 })
@@ -34,10 +36,10 @@ const storage = multer.diskStorage({
     }
 })
 
-const upload = multer({storage:storage})
+const upload = multer({storage:storage});
 
 // Creating upload endpoint for images
-app.use('/images', express.static('upload/images'))  // static endpoint
+app.use('/images',express.static('upload/images'))  // static endpoint
 
 app.post("/upload", upload.single('product'), (req, res)=>{
     res.json({
@@ -85,22 +87,22 @@ const Product = mongoose.model("Product", {
 })
 
 
-// API for adding product
+// // API for adding product
 app.post('/addproduct', async(req, res)=>{
     // automatic id creation in increasing order
     let products = await Product.find({});
     let id;
     if(products.length > 0){
-        let last_product_array = products.slice(-1);
+        let last_product_array = products.slice(-1); // last product
         let last_product = last_product_array[0];
-        id = last_product.id + 1; // whatever was last id of product, we will increase next product id by 1
+        id = last_product.id + 1; // whatever was last product id, we will increase next product id by 1
     }
     else{
         id=1;
     }
 
-    const product = new Product({
-        id: id,
+    const product = new Product({  //we created new product, we have set keys, values will come from request body
+        id:id,
         name:req.body.name,
         image:req.body.image,
         category:req.body.category,
@@ -118,17 +120,20 @@ app.post('/addproduct', async(req, res)=>{
 
 
 
-// Creating API for Deleting Products
+// Creating API for Deleting Products  
 app.post('/removeproduct', async(req, res)=>{
-    await Product.findOneAndDelete({id:req.body.id});
-    console.log("removed");
+    await Product.findOneAndDelete({id:req.body.id}); // usig id we can remove product from DB
+    console.log("Removed");
     res.json({ // response for frontend
         success: true,
         name: req.body.name
     })
 })
 
-// creating API for getting all products
+
+
+
+// creating API for getting all products  // we will get all products list
 app.get('/allproducts', async(req, res)=>{
     let products = await Product.find({});
     console.log("All Products Fetched");
@@ -157,6 +162,9 @@ const Users = mongoose.model('Users',{
     }
 })
 
+
+
+
 // Creating an endpoint for registering the user
 app.post('/signup', async(req, res)=>{
     // checking if user is already exists
@@ -171,7 +179,7 @@ app.post('/signup', async(req, res)=>{
     }
     // creating a new user
     const user = new Users({
-        name:req.body.name,
+        name:req.body.username,
         email:req.body.email,
         password:req.body.password,
         cartData:cart,
@@ -204,9 +212,8 @@ app.post('/login', async(req, res)=>{
           const data = {
             user: {
               id: user.id,
-            },
-          };
-
+            }
+          }
           const token = jwt.sign(data, "secret_shop");
           res.json({ success: true, token });
         }
@@ -294,6 +301,6 @@ app.listen(port, (error)=>{
         console.log("server is running on Port "+ port)
     }
     else{{
-        console.log("Error : "+error)
+        console.log("Error : "+ error)
     }}
 });

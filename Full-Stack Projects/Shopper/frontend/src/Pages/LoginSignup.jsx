@@ -14,6 +14,8 @@ const LoginSignup = () => {
     setFormData({...formData, [e.target.name]:e.target.value})
   }
 
+
+  // login function 
   const login = async() =>{
      console.log("login function executed", formData);
      let responseData;
