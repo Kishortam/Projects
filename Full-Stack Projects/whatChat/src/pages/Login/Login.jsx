@@ -11,7 +11,7 @@ const Login = () => {
 
   // whenever we enter a values in input field, these variables stores it.
   const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState(" ");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const onSubmitHandler = (event) =>{

@@ -48,7 +48,7 @@ const AppContextProvider = (props) =>{
             // if users avatar & name is available, then navigate it to chat page, else on profile page to upload it
             if(userData.avatar && userData.name){
                 navigate('/chat');
-            }
+            } 
             else{
                 navigate('/profile')
             }

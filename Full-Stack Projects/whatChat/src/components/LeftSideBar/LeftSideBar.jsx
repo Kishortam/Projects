@@ -20,7 +20,7 @@ const LeftSideBar = () => {
             const input = e.target.value;
             if (input) {
               setShowSearch(true);
-              const userRef = collection(db, "users");
+              const userRef = collection(db, 'users');
               const q = query(
                 userRef,
                 where("username", "==", input.toLowerCase())

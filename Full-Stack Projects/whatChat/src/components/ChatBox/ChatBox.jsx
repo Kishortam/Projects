@@ -126,7 +126,7 @@ const ChatBox = () => {
 
         {/* chatting content */}
         <div className="chat-msg">
-            {messages.map((msg, index)=>{
+            {messages.map((msg, index)=>(
             <div key={index} className={msg.sId === userData.id ? "s-msg" : "r-msg"}>
                 {msg["image"] 
                     ? <img className='msg-img' src={msg.image}/>
@@ -137,7 +137,7 @@ const ChatBox = () => {
                      <p>{convertTimestamp(msg.createdAt)}</p>
                  </div> 
              </div>
-            })}
+            ))}
         </div>
 
 

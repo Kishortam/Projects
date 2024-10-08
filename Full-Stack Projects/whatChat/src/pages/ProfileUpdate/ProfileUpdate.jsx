@@ -59,7 +59,7 @@ const ProfileUpdate = () => {
       if(user){
         setUid(user.uid)
         const docRef = doc(db, "users", user.uid);
-        const docSnap = await getDoc(docRef)
+        const docSnap = await getDoc(docRef);
         // if userdata is present in document, set in state variables
         if(docSnap.data().name){
           setName(docSnap.data().name);
@@ -83,6 +83,7 @@ const ProfileUpdate = () => {
     <div className='profile'>
       <div className="profile-container">
         <form onSubmit={profileUpdate}>
+          <h3>Profile Details</h3>
           <label htmlFor="avatar">
             <input onChange={(e)=> setImage(e.target.files[0])} type="file" id='avatar' accept='.png, .jpg, .jpeg' hidden/>
             {/* if image available show it, else show avatar  */}
