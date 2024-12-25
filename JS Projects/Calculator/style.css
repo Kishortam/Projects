@@ -47,3 +47,6 @@ form input.equal{
 form input.operator{
     color: #618cca;
 }
+.calculator form input:hover{
+   background-color: #182435; 
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        font-family: Poppins, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #222;
+      }
+      .card {
+        width: 90%;
+        max-width: 470px;
+        background: linear-gradient(135deg, #00feba, #5b548a);
+        color: #fff;
+        margin: 100px auto 0;
+        border-radius: 20px;
+        padding: 40px 35px;
+        text-align: center;
+      }
+      .search {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .search input {
+        border: 0;
+        outline: 0;
+        background: #bffc;
+        color: #555;
+        padding: 10px 25px;
+        height: 60px;
+        border-radius: 30px;
+        flex: 1;
+        margin-right: 16px;
+        font-size: 18px;
+      }
+      .search button {
+        border: 0;
+        outline: 0;
+        background: #bffc;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+      }
+      .search button img {
+        width: 60%;
+      }
+      .weather-icon {
+        width: 170px;
+        margin-top: 30px;
+      }
+      .weather h1 {
+        font-size: 70px;
+        font-weight: 500;
+      }
+      .weather h2 {
+        font-size: 45px;
+        font-weight: 400;
+        margin-top: -10px;
+      }
+      .weather .condition {
+        font-size: 25px;
+        margin-top: -50px;
+      }
+      .details {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        margin-top: 50px;
+      }
+      .col {
+        display: flex;
+        align-items: center;
+        text-align: left;
+      }
+      .col img {
+        width: 40px;
+        margin-right: 10px;
+      }
+      .humidity,
+      .wind {
+        font-size: 23px;
+        margin-top: 6px;
+      }
+      .weather {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="search">
+        <input type="text" name="" id="" placeholder="enter city" />
+        <button>search</button>
+      </div>
+
+      <div class="weather">
+        <img src="../WeatherApp/images/rain.png" alt="" class="weather-icon" />
+        <h1 class="temp">22 C</h1>
+        <h2 class="condition">Rainy</h2>
+        <h2 class="city">new York</h2>
+
+        <div class="details">
+          <div class="col">
+            <img src="../WeatherApp/images/humidity.png" alt="" />
+            <div>
+              <p class="humidity">50%</p>
+              <p>Humidity</p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="../WeatherApp/images/humidity.png" alt="" />
+            <div>
+              <p class="wind">15km/h</p>
+              <p>Wind Speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const inputRef = document.querySelector(".search input");
+      const buttonRef = document.querySelector(".search button");
+      const tempRef = document.querySelector(".weather .temp");
+      const cityRef = document.querySelector(".weather .city");
+      const conditionRef = document.querySelector(".weather .condition");
+      const conditionIcon = document.querySelector(".weather .weather-icon");
+      const humidRef = document.querySelector(".col .humidity");
+      const windRef = document.querySelector(".col .wind");
+
+      buttonRef.addEventListener('click', function(e){
+        e.preventDefault();
+        fetchData(inputRef.value);
+      })
+
+      function fetchData(location){
+        fetch(`http://api.weatherapi.com/v1/current.json?key=14c86e50a2ef4c6980b61503232912&q=${location}&aqi=no`)
+        .then(res => res.json())
+        .then(data => updateWeather(data))
+        .catch(function(e){
+            console.log(e);
+        })
+      }
+
+      function updateWeather(data){
+        tempRef.innerText = Math.round(data.current.temp_c) + "°C"; // rounded off temp
+    cityRef.innerText = data.location.name;
+    conditionRef.innerText = data.current.condition.text;
+    conditionIcon.src = data.current.condition.icon;
+    humidRef.innerText = data.current.humidity + "%"; // add symbols
+    windRef.innerText = data.current.wind_kph + " km/h";
+
+    document.querySelector('.weather').style.display = 'block';
+      }
+    </script>
+  </body>
+</html>
