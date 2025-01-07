@@ -46,18 +46,11 @@
     font-size: 19px;
     line-height: 30px;
 }
-/* .contact-details{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+.left p a{
     color: #d8d8d8;
-    font-size: 22px;
+    font-size: 19px;
 }
-.detail{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-} */
+
 .right{
     display: flex;
     flex-direction: column;
@@ -147,6 +140,9 @@
     transform: scale(1.1);
     transition: 0.3s;
 }
+.btn2{
+    text-align: center;
+}
 .contact-right form{
     width: 100%;
 }
@@ -176,7 +172,7 @@ form .btn2{
     .contact{
         gap: 50px;
         margin: 50px 70px;
-        align-items: start;
+        align-items: center;
     }
     .title h1{
         padding: 0;

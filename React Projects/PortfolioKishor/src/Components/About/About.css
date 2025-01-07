@@ -24,6 +24,10 @@
    display: flex;
    gap: 80px; 
 }
+.left img{
+    width: 250px;
+    border-radius: 12px;
+}
 .right{
     display: flex;
     flex-direction: column;
@@ -36,35 +40,43 @@
     font-size: 20px;
     font-weight: 300;
 }
-.about-skills{
+
+.info{
+    display: flex;
+    justify-content: space-around;
+    gap: 120px;
+    margin-top: 20px;
+}
+.info .skills{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
-.skills{
-    display: flex;
-    align-items: left;
-    gap: 70px;
-    transition: 0.3s;
+.skills p{
+    font-size: 18px;
+    cursor: default;
 }
 .skills p:hover{
-    transform: scale(1.05);
+    transform: scale(1.1);
     transition: 0.3s;
 }
-
-/* .skills p{
-    min-width: 150px;
-    font-size: 24px;
-    font-weight: 500;
+.educations{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 15px;
+    transition: 0.3s;
 }
-.skills hr{
-    outline: none;
-    border: none;
-    width: 50%;
-    height: 8px;
-    border-radius: 50px;
-    background: linear-gradient(264deg, #da7c25 -5.09%, #b923e1 106.06%);
-} */
+.education p{
+    font-size: 18px;
+    cursor: default;
+}
+.education p span{
+    font-size: 15px;
+    color: rgb(122, 118, 118);
+}
+
+
 .about-achievements{
     display: flex;
     width: 100%;
@@ -95,31 +107,6 @@
     transition: 0.3s;
 }
 
-/* new */
-.info{
-    display: flex;
-    justify-content: space-around;
-    gap: 80px;
-}
-.info .skills{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-.skill{
-    text-align: left;
-}
-.educations{
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    gap: 15px;
-    transition: 0.3s;
-}
-.educations p:hover{
-    transform: scale(1.05);
-    transition: 0.3s;
-}
 
 
 /* media query */
@@ -152,7 +139,7 @@
     }
     .skills{
         gap: 20px;
-        align-items: center;
+        align-items: flex-start;
     }
     .skill p{
         font-size: 20px;

@@ -1,17 +1,15 @@
 import React from 'react'
 import './Contact.css'
 import theme_pattern from '../../assets/theme_pattern.svg'
-// import mail_icon from '../../assets/mail_icon.svg'
-// import location_icon from '../../assets/location_icon.svg'
-// import call_icon from '../../assets/call_icon.svg'
-
 
 const Contact = () => {
+
+  // To get email from user or person who wants to contact or reach us,
+  // we will use => web3 forms 
 
     // open web3forms.com => get access key by email => copy code for react
     // paste it into component
    
-
     const onSubmit = async (event) => {
       event.preventDefault();
       const formData = new FormData(event.target);
@@ -44,35 +42,21 @@ const Contact = () => {
         </div>
 
         <div className="section">
-                {/* <h1>Let's Talk</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, non? Corrupti nesciunt ut eaque iure?</p>
-
-                <div className="contact-details">
-                    <div className="detail">
-                        <img src={mail_icon} alt="" /> <p>kishortam@gmail.com</p>
-                    </div>
-                    <div className="detail">
-                        <img src={call_icon} alt="" /> <p>+91 9737732898979</p>
-                    </div>
-                    <div className="detail">
-                        <img src={location_icon} alt="" /> <p>Cuffe Parade, Mumbai</p>
-                    </div> */}
-
             <div className="left">
                     <h1 className="sub-title">Contact Me</h1>
-                    <p><i className="fas fa-paper-plane"></i>kishortam@gmail.com</p>
-                    <p><i className="fas fa-phone"></i>+91 9892623219</p>
+                    <p><i className="fas fa-paper-plane"></i><a href="mailto:kishortam@gmail.com">kishortam@gmail.com</a></p>
+                    <p><i className="fas fa-phone"></i><a href="tel:+919892623219">+91 9892623219</a></p>
                     <div className="social-icons">
-                        <a href=""><i className="fab fa-linkedin"></i></a>
-                        <a href=""><i className="fab fa-github"></i></a>
-                        <a href=""><i className="fab fa-instagram"></i></a>
-                        <a href=""><i className="fab fa-facebook"></i></a>
-                        <a href=""><i className="fab fa-slack"></i></a>
+                        <a href="http://www.linkedin.com/in/kishor-tambe" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="http://www.github.com/Kishortam" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/kishor.tambe.96?igsh=MWNhZ3FjOXVobnJhYQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://scaler-co.slack.com/team/U04NMJU3XB5" target="blank"><i class="fab fa-slack"></i></a>  
+                        <a href="https://wa.me/9892623219" target="blank"><i class="fab fa-whatsapp"></i></a>                      
                     </div>
-                    <a href="./images/my-cv.pdf" download className="btn btn2">Download CV</a>
+                    <a href="./CV/Kishor_Tambe_CV1.pdf" download className="btn btn2">Download CV</a>
             </div>
 
-            <div onSubmit={onSubmit} className="right">
+            <form onSubmit={onSubmit} className="right">
                 <label htmlFor="">Your Name</label>
                 <input type="text" name="your_name" id="" placeholder='Enter your name' />
                 
@@ -83,7 +67,7 @@ const Contact = () => {
                 <textarea name="message" id="" rows="8" placeholder='Enter your message'></textarea>
 
                 <button type='submit' className="submit">Submit Now</button>
-            </div>
+            </form>
         </div>
     </div>
   )

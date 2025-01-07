@@ -6,7 +6,7 @@ import user_icon from '../../assets/user_icon.svg'
 const Footer = () => {
   return (
     <div className='footer'>
-        <div className="top">
+        {/* <div className="top">
             <div className="left">
                 <img src={footer_logo} alt="" />
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, aliquam nostrum ipsa tenetur neque maiores?</p>
@@ -18,16 +18,15 @@ const Footer = () => {
                 </div>
                 <div className="subscribe">Subscribe</div>
             </div>
-        </div>
-
+        </div> */}
         <hr />
 
         <div className="bottom">
-            <div className="bottom-left">@ 2023. All rights reserved</div>
+            <div className="bottom-left">Software Developer @ 2024</div>
             <div className="bottom-right">
-                <p>Term of services</p>
-                <p>privacy policy</p>
-                <p>connect with me</p>
+                <p>Terms & Conditions</p>
+                <p>Privacy Policy</p>
+                <p>More</p>
             </div>
         </div>
     </div>

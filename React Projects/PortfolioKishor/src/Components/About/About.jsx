@@ -1,7 +1,7 @@
 import React from 'react'
 import './About.css'
 import theme_pattern from '../../assets/theme_pattern.svg'
-import profile_img from '../../assets/profile_img.svg'
+import profile_pic from '../../assets/profile_pic.png'
 
 const About = () => {
   return (
@@ -13,7 +13,7 @@ const About = () => {
 
         <div className="sections">
             <div className="left">
-                <img src={profile_img} alt="" />
+                <img src={profile_pic} alt="" />
             </div>
             <div className="right">
                 <div className="about-para">
@@ -35,22 +35,22 @@ const About = () => {
                         <h2>Skills</h2>
                         <p>Frontend</p>
                         <p>Backend</p>
-                        <p>Database</p>
+                        <p>Databases</p>
                         <p>Data Structure & Algorithm</p>
                     </div>
                     <div className="educations">
                         <h2>Education</h2>
                         <div className="education">
                             <p>Scaler Academy</p>
-                            <p>2024</p>
+                            <p> <span>Full Stack Software Engineering | Feb 2023 - Present </span> </p>
                         </div>
                         <div className="education">
                             <p>CodeKaro</p>
-                            <p>2024</p>
+                            <p><span> MERN Stack Web Development | Apr 2023</span></p>
                         </div>
                         <div className="education">
-                            <p>Elphinstone College</p>
-                            <p>2024</p>
+                            <p>Elphinstone College | University of Mumbai</p>
+                            <p><span> Bachelor of Science in Botany | Jul 2017</span></p>
                         </div>
                     </div>
                 </div>

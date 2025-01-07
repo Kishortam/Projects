@@ -4,6 +4,14 @@
     justify-content: space-between;
     margin: 20px 170px;
 }
+.navbar h1{
+    font-size: 40px;
+    font-weight: 600;
+    background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 .nav-menu{
     display: flex;
     align-items: center;
@@ -42,6 +50,8 @@
 .nav-mob-open{
     display: none;
 }
+
+/* media query */
 @media(max-width: 768px){
     .navbar{
         margin: 20px 50px;
