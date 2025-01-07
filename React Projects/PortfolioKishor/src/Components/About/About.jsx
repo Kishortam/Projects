@@ -5,7 +5,7 @@ import profile_img from '../../assets/profile_img.svg'
 
 const About = () => {
   return (
-    <div className='about'>
+    <div id='about' className='about'>
         <div className="title">
             <h1>About Me</h1>
             <img src={theme_pattern} alt="" />
@@ -17,9 +17,6 @@ const About = () => {
             </div>
             <div className="right">
                 <div className="about-para">
-                    {/* <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum necessitatibus temporibus quaerat possimus tenetur laboriosam?</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In odio tempore doloribus perspiciatis, iusto culpa quisquam earum quae, corporis commodi sed incidunt rerum, ea repellendus.</p> */}
-
                     <p>Hello! I'm Kishor Tambe, a passionate software developer with over 2 years of experience in building dynamic and responsive web applications. 
                         I hold Software Developer degree from Scaler Academy.</p>
 
@@ -32,13 +29,6 @@ const About = () => {
 
                     <p>Let's connect and create something amazing together!</p>
                 </div>
-
-                {/* <div className="about-skills">
-                    <div className="skills"><p>HTML & CSS</p><hr style={{width:"50%"}} /></div>
-                    <div className="skills"><p>Javascript</p><hr style={{width:"70%"}} /></div>
-                    <div className="skills"><p>ReactJS</p><hr style={{width:"60%"}} /></div>
-                    <div className="skills"><p>DSA</p><hr style={{width:"40%"}} /></div>
-                </div> */}
 
                 <div className="info">
                     <div className="skills">

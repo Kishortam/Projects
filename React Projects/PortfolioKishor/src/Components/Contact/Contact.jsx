@@ -7,8 +7,37 @@ import theme_pattern from '../../assets/theme_pattern.svg'
 
 
 const Contact = () => {
+
+    // open web3forms.com => get access key by email => copy code for react
+    // paste it into component
+   
+
+    const onSubmit = async (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+  
+      formData.append("access_key", "3d91682c-943e-4247-a3e4-a9a971d825d7");
+  
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+  
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      }).then((res) => res.json());
+  
+      if (res.success) {
+        // console.log("Success", res);
+        alert(res.message);
+      }
+    };
+
   return (
-    <div className='contact'>
+    <div id='contact' className='contact'>
         <div className="title">
             <h1>Get in Touch</h1>
             <img src={theme_pattern} alt="" />
@@ -43,17 +72,17 @@ const Contact = () => {
                     <a href="./images/my-cv.pdf" download className="btn btn2">Download CV</a>
             </div>
 
-            <div className="right">
+            <div onSubmit={onSubmit} className="right">
                 <label htmlFor="">Your Name</label>
-                <input type="text" name="name" id="" placeholder='Enter your name' />
+                <input type="text" name="your_name" id="" placeholder='Enter your name' />
                 
                 <label htmlFor="">Your Email</label>
-                <input type="email" name="email" id="" placeholder='Enter your email'/>
+                <input type="email" name="your_email" id="" placeholder='Enter your email'/>
 
                 <label htmlFor="">Write your message here</label>
                 <textarea name="message" id="" rows="8" placeholder='Enter your message'></textarea>
 
-                <button className="submit">Submit Now</button>
+                <button type='submit' className="submit">Submit Now</button>
             </div>
         </div>
     </div>
