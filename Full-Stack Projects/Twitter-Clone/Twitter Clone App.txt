@@ -1,0 +1,16 @@
+Twitter Clone App:
+=> Create front-end and backend folders in Main folder.
+=> Create a react app with vite in frontend folder.
+=> Open terminal for main folder, in terminal we write -> npm init -y to add dependencies.
+=> Install all dependencies and packages at one go -> npm install express mongoose jsonwebtoken bcryptjs dotenv cors cookie-parser cloudinary
+=> install -D nodemon
+
+=> in packeage.json make following changes:
+*  "main": "backend/server.js", // change file name from index.js to server,js
+* "scripts": {
+    "dev": "nodemon backend/server.js",
+    "start": "node backend/server.js",
+  },
+* "type": "module", // right after author
+
+=> to check if all is working good, create a server.js file in Backend folder, write code for console.log("any text"), in terminal write npm run dev to see node is working.
