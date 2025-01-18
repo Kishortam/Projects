@@ -1,7 +1,9 @@
+import path from "path";
 import express from "express";
 import dotenv from "dotenv";
 import {v2 as cloudinary} from "cloudinary";
 import cookieParser from "cookie-parser";
+
 // Routes
 import authRoutes from "./routes/auth.route.js";
 import userRoutes from "./routes/user.route.js";
@@ -23,6 +25,7 @@ cloudinary.config({
 
 const app = express(); 
 const PORT = process.env.PORT || 5000;  
+const  __dirname = path.resolve();
 
 // to check whats we get on browser on start
 // app.get("/", (req, res)=>{
@@ -38,10 +41,20 @@ app.use(cookieParser());
 // // we can read .env file using this command
 // // console.log(process.env.MONGO_URI);
 
+// routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/notifications", notificationRoutes);
+
+// if other than above route such as homepage, profile page, send user to this react application
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+    app.get("*", (req, res) =>{
+        res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+    })
+}
 
 
 // Port mounting
