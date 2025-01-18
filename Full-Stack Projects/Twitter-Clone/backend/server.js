@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import {v2 as cloudinary} from "cloudinary";
 import cookieParser from "cookie-parser";
-
+// Routes
 import authRoutes from "./routes/auth.route.js";
 import userRoutes from "./routes/user.route.js";
 import postRoutes from "./routes/post.route.js";
@@ -22,7 +22,7 @@ cloudinary.config({
 });
 
 const app = express(); 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;  
 
 // to check whats we get on browser on start
 // app.get("/", (req, res)=>{
@@ -41,8 +41,10 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
-app.use("api/notifications", notificationRoutes);
+app.use("/api/notifications", notificationRoutes);
 
+
+// Port mounting
 app.listen(PORT, ()=>{
     console.log(`server is running on port ${PORT}`);
     connectMongoDB();

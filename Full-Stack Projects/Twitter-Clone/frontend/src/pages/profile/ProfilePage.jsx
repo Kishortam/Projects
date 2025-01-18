@@ -4,8 +4,9 @@ import { Link, useParams } from "react-router-dom";
 import Posts from "../../components/common/Posts";
 import ProfileHeaderSkeleton from "../../components/skeletons/ProfileHeaderSkeleton";
 import EditProfileModal from "./EditProfileModal";
-
 import { POSTS } from "../../utils/db/dummy";
+import useFollow from "../../hooks/useFollow";
+import useUpdateUserProfile from "../../hooks/useUpdateUserProfile";
 
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoCalendarOutline } from "react-icons/io5";
@@ -14,8 +15,7 @@ import { MdEdit } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 import { formatMemberSinceDate } from "../../utils/date";
 
-import useFollow from "../../hooks/useFollow";
-import useUpdateUserProfile from "../../hooks/useUpdateUserProfile";
+
 
 const ProfilePage = () => {
 
@@ -31,7 +31,7 @@ const ProfilePage = () => {
 	const {follow, isPending} =  useFollow();
 	const {data:authUser} = useQuery({queryKey : ["authUser"]});
 
-	const {data: user, isLoading, refetch, isRefetching} = useQuery({
+	const {data:user, isLoading, refetch, isRefetching} = useQuery({
 		queryKey:["userProfile"],
 		queryFn: async() =>{
 			try {

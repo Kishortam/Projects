@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
 
+import LoadingSpinner from "../../../components/common/LoadingSpinner";
 
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
-import LoadingSpinner from "../../../components/common/LoadingSpinner";
+
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+
 
 const NotificationPage = () => {
 	const queryClient = useQueryClient();
 
+	// to get notifications
 	const {data:notifications, isLoading} = useQuery({
 		queryKey : ["notifications"],
 		queryFn: async() =>{
@@ -27,6 +30,7 @@ const NotificationPage = () => {
 		}
 	});
 
+	// to delete notifications
 	const {mutate: deleteNotifications} = useMutation({
 		mutationFn: async() =>{
 			try {
@@ -50,6 +54,8 @@ const NotificationPage = () => {
 			toast.error(error.message);
 		}
 	});
+
+
 
 	return (
 		<>
@@ -75,6 +81,7 @@ const NotificationPage = () => {
 						<LoadingSpinner size='lg' />
 					</div>
 				)}
+				{/* if no notifications, show "No Notifications" else show all notifications */}
 				{notifications?.length === 0 && <div className='text-center p-4 font-bold'>No notifications 🤔</div>}
 				{notifications?.map((notification) => (
 					<div className='border-b border-gray-700' key={notification._id}>

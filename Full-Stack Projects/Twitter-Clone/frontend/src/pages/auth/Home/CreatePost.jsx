@@ -10,7 +10,7 @@ const CreatePost = () => {
 	const [img, setImg] = useState(null);
 	const imgRef = useRef(null);
 
-	const {data: authUser} = useQuery({queryKey : ['authUser']});
+	const {data:authUser} = useQuery({queryKey : ['authUser']});
 	const queryClient = useQueryClient();
 
 	const {mutate:CreatePost, isPending, isError, error} = useMutation({
@@ -40,13 +40,11 @@ const CreatePost = () => {
 			queryClient.invalidateQueries({queryKey : ['posts']});
 		}
 
-	})
+	});
 
-
-
-	const data = {
-		profileImg: "/avatars/boy1.png",
-	};
+	// const data = {
+	// 	profileImg: "/avatars/boy1.png",
+	// };
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -109,4 +107,5 @@ const CreatePost = () => {
 		</div>
 	);
 };
+
 export default CreatePost;

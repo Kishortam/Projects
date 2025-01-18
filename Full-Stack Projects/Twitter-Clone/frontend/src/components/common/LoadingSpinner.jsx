@@ -1,3 +1,5 @@
+// loading spinner icon
+
 const LoadingSpinner = ({ size = "md" }) => {
 	const sizeClass = `loading-${size}`;
 

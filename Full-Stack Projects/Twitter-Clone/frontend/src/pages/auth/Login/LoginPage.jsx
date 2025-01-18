@@ -7,7 +7,7 @@ import { MdOutlineMail } from "react-icons/md";
 import { MdPassword } from "react-icons/md";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import toast from "react-hot-toast";
+
 
 const LoginPage = () => {
 	const [formData, setFormData] = useState({
@@ -39,18 +39,18 @@ const LoginPage = () => {
 			}
 		},
 		onSuccess: ()=>{
-			// toast.success("Login successfully");
-
 			// refetch the authUser
 			queryClient.invalidateQueries({queryKey: ["authUser"]});
 		}
-	})
+	});
 
+	// handle submit function
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		loginMutation(formData);
 	};
 
+	// when something entered in input box
 	const handleInputChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 	};

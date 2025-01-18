@@ -2,7 +2,6 @@ import { text } from "express";
 import mongoose, { model, trusted } from "mongoose";
 
 // schema for post
-
 const postSchema = new mongoose.Schema({
     user:{
         type: mongoose.Schema.Types.ObjectId,
