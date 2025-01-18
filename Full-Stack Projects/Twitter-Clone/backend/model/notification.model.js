@@ -1,5 +1,7 @@
-import mongoose, { mongo, Mongoose } from "mongoose";
+import mongoose from "mongoose";
 
+
+// schema for notification
 const notificationSchema = new mongoose.Schema({
     from:{
         type: mongoose.Schema.Types.ObjectId,

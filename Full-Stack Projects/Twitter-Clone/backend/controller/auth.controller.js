@@ -3,7 +3,7 @@ import User from "../model/user.model.js";
 import bcrypt from 'bcryptjs';
 
 
-//  signup
+//  Signup
 export const signup = async(req, res)=>{
     try {
         const {fullName, username, email, password} = req.body; // take all info from req.body
@@ -30,7 +30,7 @@ export const signup = async(req, res)=>{
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // create a new user
+    // if above conditions false, create a new user
     const newUser = new User({
         fullName,
         username,
@@ -65,13 +65,14 @@ export const signup = async(req, res)=>{
 };
 
 
-// login
+// Login
 export const login = async(req, res)=>{
     try {
         const {username, password} = req.body;
         const user = await User.findOne({username});
         const isPasswordCorrect = await bcrypt.compare(password, user?.password || "");
 
+        // if username or password in incorrect or not mention
         if(!user || !isPasswordCorrect){
             return res.status(400).json({error: "Invalid username or password"});
         }

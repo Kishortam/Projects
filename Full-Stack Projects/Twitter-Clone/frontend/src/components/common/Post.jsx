@@ -3,22 +3,25 @@ import { BiRepost } from "react-icons/bi";
 import { FaRegHeart } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa";
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { queryOptions, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+
 import LoadingSpinner from "./LoadingSpinner";
 import {formatPostDate} from "../../utils/date"
 
 const Post = ({ post }) => {
 	const [comment, setComment] = useState("");
-	const {data : authUser} = useQuery({queryKey: ["authUser"]});
+	const {data:authUser} = useQuery({queryKey: ["authUser"]});
 	const queryClient = useQueryClient();
 	const postOwner = post.user;
 	const isLiked = post.likes.includes(authUser._id);
-	// if user is authenticated or post post belongs to him, it will thrash icon
-	const isMyPost = authUser._id === post.user._id;
 
+	// if user is authenticated or post belongs to him, it will show thrash icon
+	const isMyPost = authUser._id === post.user._id;
+	// imported from utils->date
 	const formattedDate = formatPostDate(post.createdAt);
 
 	// to delete post  // if post is our we can delete
@@ -45,7 +48,7 @@ const Post = ({ post }) => {
 		}
 	});
 
-	// like post
+	// like a post
 	const {mutate:likePost, isPending:isLiking} = useMutation({
 		mutationFn : async () => {
 			try {
@@ -127,6 +130,7 @@ const Post = ({ post }) => {
 		likePost();
 	};
 
+
 	return (
 		<>
 			<div className='flex gap-2 items-start p-4 border-b border-gray-700'>
@@ -149,7 +153,7 @@ const Post = ({ post }) => {
 							<span className='flex justify-end flex-1'>
 								{!isDeleting && (<FaTrash className='cursor-pointer hover:text-red-500' 
 								onClick={handleDeletePost} />)}
-								{isDeleting && ( <LoadingSpinner size="sm"/>)}
+								{isDeleting && <LoadingSpinner size="sm"/>}
 							</span>
 						)}
 					</div>
@@ -254,4 +258,6 @@ const Post = ({ post }) => {
 		</>
 	);
 };
+
+
 export default Post;

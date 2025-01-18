@@ -32,7 +32,9 @@ const EditProfileModal = ({authUser}) => {
 				currentPassword: "",
 			})
 		}
-	},[authUser])
+	},[authUser]);
+
+	
 
 	return (
 		<>

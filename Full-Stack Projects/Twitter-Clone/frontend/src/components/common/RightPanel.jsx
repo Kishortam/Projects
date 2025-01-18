@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+
 import RightPanelSkeleton from "../skeletons/RightPanelSkeleton";
 import LoadingSpinner from "../common/LoadingSpinner";
-// import { USERS_FOR_RIGHT_PANEL } from "../../utils/db/dummy";
-import { useQuery } from "@tanstack/react-query";
-import useFollow from "../../hooks/useFollow";
+import useFollow from "../../hooks/useFollow"; // custom hook
 
 const RightPanel = () => {
-	const {data: suggestedUsers, isLoading} = useQuery({
+	const {data:suggestedUsers, isLoading} = useQuery({
 		queryKey : ["suggestedUsers"],
 		queryFn: async() =>{
 			try {
@@ -78,4 +78,6 @@ const RightPanel = () => {
 		</div>
 	);
 };
+
+
 export default RightPanel;

@@ -13,7 +13,7 @@ export const createPost = async(req, res) => {
 
         const userId = req.user._id.toString();
 
-        const user = await User.findById(userId);
+        const user = await User.findById(userId); // find user by id
         if(!user){
             return res.status(404).json({message: "User not found"});
         }
@@ -27,13 +27,14 @@ export const createPost = async(req, res) => {
             img = uploadedResponse.secure_url;
         }
 
+        // create a new post
         const newPost = new Post({
             user:userId, 
             text,
             img,
         })
 
-        await newPost.save();
+        await newPost.save();  // save the post
 
         res.status(201).json(newPost);
 
@@ -60,7 +61,7 @@ export const deletePost = async(req, res) =>{
         // if post with image, destroy or delete the image also
         if(post.img){
             const imgId = post.img.split("/").pop().split(".")[0];
-            await cloudinary.upload.destroy(imgId);
+            await cloudinary.uploader.destroy(imgId);
         }
 
         // delete a post
