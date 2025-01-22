@@ -1,0 +1,19 @@
++ Frontend
+
+=> in Frontend folder, create app with vite, install dependencies
+=> install tailwind CSS with Vite, follow instructions
+=> install shadcn UI with Vite, follow instructions
+=> go to Cleark for authentication, and create new project, install and follow instruction
+
++ Backend
+=> in Backend folder, open terminal and add dependencies by writing npm init -y
+=> install packages : npm i express mongoose dotenv cors cloudinary @clerk/express socket.io
+=> install devDependency : npm i -D nodemon
+=> in packages.json :  "type": "module",
+=> in packages.json:   
+"scripts": {
+    "dev": "nodemon src/index.js"  // create command to run
+  },
+
+=> create routes
+=> create database with mongoDB

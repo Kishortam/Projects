@@ -67,4 +67,21 @@ Frontend: go to frontend and run npm run dev
 => create a pages folder under src -> auth -> Home, login, notifications, signup 
 => src -> profile -> profilePage, editProfile modal.
 
-Deployment: go to render.com
+before deployment:
+=> in package.json -> scripts -> 
+"scripts": {
+    "dev": "NODE_ENV=development nodemon backend/server.js",
+    "start": "NODE_ENV=production node backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+  },
+
+=> in server.js
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+    app.get("*", (req, res) =>{
+        res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+    })
+}
+
+=> terminal of root folder : npm run build
