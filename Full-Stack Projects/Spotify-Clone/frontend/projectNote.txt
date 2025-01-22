@@ -17,3 +17,5 @@
 
 => create routes
 => create database with mongoDB
+=> create models and controllers
+=> install express-fileupload 
