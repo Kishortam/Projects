@@ -1,4 +1,4 @@
-import Album from "../models/album.model.js";
+import {Album} from "../models/album.model.js";
 
 // to get all albums
 export const getAllAlbums = async(req, res, next) =>{
