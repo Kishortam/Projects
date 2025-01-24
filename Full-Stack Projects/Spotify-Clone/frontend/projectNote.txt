@@ -25,3 +25,5 @@
 +Frontend:
 => vite.config.ts -> add server port: 3000
 => install react-router-dom axios
+=> use shadcn to use various components. e.g. npx shadcn@latest component_name
+=> npm install zustand
