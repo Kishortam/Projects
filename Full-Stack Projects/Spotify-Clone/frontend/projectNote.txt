@@ -19,3 +19,9 @@
 => create database with mongoDB
 => create models and controllers
 => install express-fileupload 
+
+-----------
+
++Frontend:
+=> vite.config.ts -> add server port: 3000
+=> install react-router-dom axios
