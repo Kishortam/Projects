@@ -3,9 +3,13 @@ import {create} from "zustand";
 
 interface ChatStore {
     users: any[];
-    fetchUsers: () => Promise<void>;
     isLoading: boolean;
     error: string | null;
+    onlineUsers: Set<string>;
+	userActivities: Map<string, string>;
+    
+
+    fetchUsers: () => Promise<void>;
 }
 
 
@@ -14,6 +18,9 @@ export const useChatStore = create<ChatStore>((set) => ({
     users: [],
     isLoading: false,
     error: null,
+    onlineUsers: new Set(),
+	userActivities: new Map(),
+
 
     fetchUsers: async() => {
         set({isLoading: true, error: null});

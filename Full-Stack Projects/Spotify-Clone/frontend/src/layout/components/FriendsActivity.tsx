@@ -1,12 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useChatStore } from '@/stores/useChatStore';
+import { useUser } from '@clerk/clerk-react';
 import { HeadphonesIcon, Music, Users } from 'lucide-react';
 import { useEffect } from 'react';
 
 
 const FriendsActivity = () => {
-    const {users, isLoading, error, fetchUsers} = useChatStore();
+    const {users, onlineUsers, userActivities, fetchUsers} = useChatStore();
 
     const { user } = useUser();
 
@@ -14,11 +15,9 @@ const FriendsActivity = () => {
 		if (user) fetchUsers();
 	}, [fetchUsers, user]);
 
-    const isPlaying = true;
 
   return (
-    <div>
-        <div className='h-full bg-zinc-900 rounded-lg flex flex-col'>
+    <div className='h-full bg-zinc-900 rounded-lg flex flex-col'>
 			<div className='p-4 flex justify-between items-center border-b border-zinc-800'>
 				<div className='flex items-center gap-2'>
 					<Users className='size-5 shrink-0' />
@@ -26,7 +25,7 @@ const FriendsActivity = () => {
 				</div>
 			</div>
 
-			{!users && <LoginPrompt />}
+			{!user && <LoginPrompt />}
 
 			<ScrollArea className='flex-1'>
 				<div className='p-4 space-y-4'>
@@ -79,7 +78,6 @@ const FriendsActivity = () => {
 				</div>
 			</ScrollArea>
 		</div>
-    </div>
   )
 }
 
