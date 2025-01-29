@@ -1,12 +1,12 @@
 import { useAuthStore } from "@/stores/useAuthStore"
 import Header from "./components/Header";
-import { DashBoardStats } from "./components/DashBoardStats";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Music } from "lucide-react";
 import SongTabContent from "./components/SongTabContent";
 import AlbumTabContent from "./components/AlbumTabContent";
 import { useEffect } from "react";
 import { useMusicStore } from "@/stores/useMusicStore";
+import DashboardStats from "./components/DashBoardStats";
 
 
 const AdminPage = () => {
@@ -29,7 +29,7 @@ const AdminPage = () => {
     <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-900 to-black text-zinc-100 p-8">
         <Header/>
 
-        <DashBoardStats/>
+        <DashboardStats/>
 
         <Tabs defaultValue="songs" className="space-y-6">
             <TabsList className="p-1 bg-zinc-800/50">

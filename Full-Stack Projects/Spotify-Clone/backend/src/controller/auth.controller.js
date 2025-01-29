@@ -11,7 +11,7 @@ export const authCallback = async(req, res, next)=>{
          // signup
          await User.create({
              clearkId: id,
-             fullName: `${firstName} ${lastName}`,
+             fullName: `${firstName || ""} ${lastName || ""}`.trim(),
              imageUrl
          })
      }
