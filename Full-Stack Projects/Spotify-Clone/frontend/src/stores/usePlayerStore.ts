@@ -130,13 +130,13 @@ export const usePlayerStore = create<PlayerStore>((set, get) => ({
 		if (prevIndex >= 0) {
 			const prevSong = queue[prevIndex];
 
-			// const socket = useChatStore.getState().socket;
-			// if (socket.auth) {
-			// 	socket.emit("update_activity", {
-			// 		userId: socket.auth.userId,
-			// 		activity: `Playing ${prevSong.title} by ${prevSong.artist}`,
-			// 	});
-			// }
+			const socket = useChatStore.getState().socket;
+			if (socket.auth) {
+				socket.emit("update_activity", {
+					userId: socket.auth.userId,
+					activity: `Playing ${prevSong.title} by ${prevSong.artist}`,
+				});
+			}
 
 			set({
 				currentSong: prevSong,
@@ -147,13 +147,13 @@ export const usePlayerStore = create<PlayerStore>((set, get) => ({
 			// no prev song
 			set({ isPlaying: false });
 
-			// const socket = useChatStore.getState().socket;
-			// if (socket.auth) {
-			// 	socket.emit("update_activity", {
-			// 		userId: socket.auth.userId,
-			// 		activity: `Idle`,
-			// 	});
-			// }
+			const socket = useChatStore.getState().socket;
+			if (socket.auth) {
+				socket.emit("update_activity", {
+					userId: socket.auth.userId,
+					activity: `Idle`,
+				});
+			}
 		}
 	},
 }));

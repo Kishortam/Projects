@@ -1,11 +1,13 @@
-import {server} from "socket.io";
-import {Message} from "../models/message.model.js";
+import {Server} from "socket.io";
+import { Message } from "../models/messgae.model.js";
 
-export const initializeSocket = (server) =>{
-    const io = new server({cors: 
-        {origin: "http://localhost:3000",
-            Credentials: true
-        }});
+export const initializeSocket =  (server) => {
+	const io = new Server(server, {
+		cors: {
+			origin: "http://localhost:3000",
+			credentials: true,
+		},
+	});
 
         const userSockets = new Map();  // {userId : socketId}
         const userActivities = new Map(); // {userId : activity}
@@ -42,7 +44,7 @@ export const initializeSocket = (server) =>{
                     });
     
                     // send to receiver in realtime, if they're online
-                    const receiverSocketId = userSocket.get(receiverId);
+                    const receiverSocketId = userSockets.get(receiverId);
                     if (receiverSocketId) {
                         io.to(receiverSocketId).emit("receive_message", message);
                     }

@@ -48,8 +48,8 @@ export const useChatStore = create<ChatStore>((set, get) => ({
         set({isLoading: true, error: null});
 
         try {
-            const respone = await axiosInstance.get("/users");
-            set({users: respone.data});
+            const response = await axiosInstance.get("/users");
+            set({users: response.data});
         } catch (error:any) {
             set({error: error.response.data.message});
         }

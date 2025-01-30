@@ -53,7 +53,8 @@ deleteSong: async(id) =>{
         toast.success("Song deleted successfully");
     }
     catch(error:any){
-        toast.error("Error deleting song");
+        console.log("Error deleting song", error);
+        toast.error("Error deleting song")
     }
     finally{
         set({isLoading: false});
