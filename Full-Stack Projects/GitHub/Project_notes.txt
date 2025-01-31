@@ -1,0 +1,8 @@
+frontend:
+=> create app with vite
+=> change port name if u want in vite.config.js
+=> install tailwind css
+=> install react-router-dom react-hot-toast react-icons
+=> setup react-router-dom with browserRoute in main.js
+=> add routes for pages in app.js
+=> create pages and components

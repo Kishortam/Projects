@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+body {
+	/* background:url("/frontend/public/logo.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed; */
+	background-color: rgb(8, 10, 12);
+}
+
+/* dark mode looking scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #555;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #121212;
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #242424;
+}
+
+@layer components {
+	.bg-glass {
+		@apply bg-clip-padding backdrop-filter backdrop-blur-md  
+		hover:bg-gray-600/10 border border-gray-800 text-white;
+	}
+}
+
