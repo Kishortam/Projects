@@ -6,3 +6,5 @@ frontend:
 => setup react-router-dom with browserRoute in main.js
 => add routes for pages in app.js
 => create pages and components
+=> get a github api to fetch the data -> api.github.com -> users {users} , repos_url
+=> add toaster and import in app.jsx to get toast notification
