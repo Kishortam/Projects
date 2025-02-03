@@ -14,26 +14,16 @@ const HomePage = () => {
 
     const [sortType, setSortType] = useState("recent");
 
-    const getUserProfileAndRepos = useCallback(async (userName = "Kishortam") => {
+    const getUserProfileAndRepos = useCallback(async (username = "Kishortam") => {
         setLoading(true);
         try {
-            // get user profile
-            
-            // const userRes = await fetch(`https://api.github.com/users/${userName}`);
-            // 60 request per hour, 5000 request per hour for authenticated user
-            const userRes = await fetch(`https://api.github.com/users/${userName}`, {
-                headers: {
-                    authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`
-                }
-            });
-            const userProfile = await userRes.json(); // convert response to json
-            setUserProfile(userProfile);
+            const res = await fetch(`http://localhost:7000/api/users/profile/${username}`)
+            const {repos, userProfile} = await res.json();
 
-            // get user repos
-            const reposRes = await fetch(userProfile.repos_url);
-            const repos = await reposRes.json(); // convert response to json
             repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); // descending, recent first
+            
             setRepos(repos);
+            setUserProfile(userProfile);
 
             return {userProfile, repos};
 

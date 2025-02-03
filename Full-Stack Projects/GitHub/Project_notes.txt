@@ -8,3 +8,19 @@ frontend:
 => create pages and components
 => get a github api to fetch the data -> api.github.com -> users {users} , repos_url
 => add toaster and import in app.jsx to get toast notification
+
+backend:
+=> setting up the server, in root folder npm init -y, to add package
+=> install express mongoose dotenv cors
+=> create server.js
+=> create .env file and add mongodb url
+=> install nodemon for dev dependencies
+=> in package.json add dev script and module type to import packages.
+ "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon backend/server.js"
+  },
+  "type": "module",
+
+
+
