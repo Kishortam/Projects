@@ -22,5 +22,11 @@ backend:
   },
   "type": "module",
 
+=> visit passportJS site and serach for github, select and copy command
+=> install passport
+=> take code from github login file, and paste in backend passport file
+=> in github go to developer setting and add client id and client secret by creating new app
+=> install express session
+
 
 
