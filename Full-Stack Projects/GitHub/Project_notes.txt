@@ -28,5 +28,7 @@ backend:
 => in github go to developer setting and add client id and client secret by creating new app
 => install express session
 
+=> package.json-> script -> // "test": "echo \"Error: no test specified\" && exit 1"
+
 
 

@@ -1,4 +1,3 @@
-import React from 'react'
 
 // Sorting repos based on sort type recent, forks, stars
 const SortRepos = ({onSort, sortType}) => { // imprting from homepage
