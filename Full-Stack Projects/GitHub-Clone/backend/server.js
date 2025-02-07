@@ -5,10 +5,10 @@ import cors from "cors";
 // import session from "express-session";
 
 // import "./Passport/github.auth.js";
-// import authRoutes from "./Routes/auth.route.js";
+import authRoutes from "./Routes/auth.route.js";
 import userRoutes from "./Routes/user.route.js";
 import exploreRoutes from "./Routes/explore.route.js"
-// import connectMongoDB from "./DB/connectMongoDB.js";
+import connectMongoDB from "./DB/connectMongoDB.js";
 
 dotenv.config();
 
@@ -28,7 +28,7 @@ app.use(cors());
 //     res.send("Hello World!");
 // });
 
-// app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/explore", exploreRoutes);
 
@@ -38,5 +38,5 @@ app.use("/api/explore", exploreRoutes);
 // server
 app.listen(5000, () => {
     console.log("Server is running on port 5000");
-    // connectMongoDB();
+    connectMongoDB();
 });
