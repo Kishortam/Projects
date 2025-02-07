@@ -11,26 +11,31 @@ const HomePage = () => {
     const [userProfile, setUserProfile] = useState(null);
     const [repos, setRepos] = useState([]);
     const [loading, setLoading] = useState(false);
-
     const [sortType, setSortType] = useState("recent");
 
     const getUserProfileAndRepos = useCallback(async (username = "Kishortam") => {
         setLoading(true);
         try {
-            const res = await fetch(`https://api.github.com/users/${username}`,{
-                headers: {
-                    Authorization: `Token ${import.meta.env.VITE_GITHUB_API_KEY}`,
-                }
-            });
-            const userProfile = await res.json();
+            // get user profile and repositories  // Initial Code
+            // const res = await fetch(`https://api.github.com/users/${username}`,{
+            //     headers: {
+            //         Authorization: `Token ${import.meta.env.VITE_GITHUB_API_KEY}`,
+            //     }
+            // });
+            // const userProfile = await res.json();
+            // setUserProfile(userProfile);
+
+            // const reposRes = await fetch(userProfile.repos_url);
+            // const repos = await reposRes.json();
+
+            // sending request to backend server to get user profile and repos
+            const res = await fetch(`http://localhost:5000/api/users/profile/${username}`);
+            const {repos, userProfile} = await res.json();
+
+            repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); // descending, recent first
+            setRepos(repos);
             setUserProfile(userProfile);
 
-            const reposRes = await fetch(userProfile.repos_url);
-            const repos = await reposRes.json();
-            setRepos(repos);
-            
-            repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); // descending, recent first
-  
             return {userProfile, repos};
 
         } catch (error) {
