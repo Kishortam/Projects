@@ -29,7 +29,7 @@ passport.serializeUser(function(user, done) {
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID, // client id from github app  
     clientSecret: process.env.GITHUB_CLIENT_SECRET, // client secret from github app
-    callbackURL: "/api/auth/github/callback"
+    callbackURL: "https://github-app-o8fq.onrender.com/api/auth/github/callback",
   },
   async function(accessToken, refreshToken, profile, done) {
     const user = await User.findOne({username: profile.username}) // check match username with profile username
