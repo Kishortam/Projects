@@ -24,7 +24,7 @@ const ExplorePage = () => {
 			// setRepos(data.items);
 
 			// request to backend server to get popular repos
-			const res = await fetch("http://localhost:5000/api/explore/repos/" + language);
+			const res = await fetch("/api/explore/repos/" + language);
 			const {repos} = await res.json();
 			setRepos(repos);
 			

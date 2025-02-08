@@ -61,6 +61,7 @@ const Repo = ({repo}) => {
 			>
 				Released on {formattedDate}
 			</time>
+			
 			<p className='mb-4 text-base font-normal text-gray-500'>
 				{repo.description ? repo.description.slice(0, 500) : "No description"}
 			</p>

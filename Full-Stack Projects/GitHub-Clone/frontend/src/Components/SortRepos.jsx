@@ -1,4 +1,3 @@
-
 // Sorting repos based on sort type recent, forks, stars
 const SortRepos = ({onSort, sortType}) => { // imprting from homepage
 	// const BUTTONS = [
@@ -6,6 +5,7 @@ const SortRepos = ({onSort, sortType}) => { // imprting from homepage
 	// 	{ type: "stars", text: "Most Stars" },
 	// 	{ type: "forks", text: "Most Forks" },
 	// ];
+
   return (
     <div className='mb-2 flex justify-center lg:justify-end'>
         {/* button 1 */}
@@ -17,6 +17,7 @@ const SortRepos = ({onSort, sortType}) => { // imprting from homepage
 			>
 				Most Recent
 			</button>
+
             {/* button 2 */}
 			<button
 				type='button'
@@ -26,6 +27,7 @@ const SortRepos = ({onSort, sortType}) => { // imprting from homepage
 			>
 				Most Stars
 			</button>
+
             {/* button 3 */}
 			<button
 				type='button'
@@ -35,9 +37,6 @@ const SortRepos = ({onSort, sortType}) => { // imprting from homepage
 			>
 				Most Forks
 			</button>
-
-
-
 
 
 

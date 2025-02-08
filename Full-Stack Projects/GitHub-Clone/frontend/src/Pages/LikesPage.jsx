@@ -1,25 +1,25 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaHeart } from "react-icons/fa";
-// import { formatDate } from "../utils/functions";
+import { formatDate } from "../utils/function";
 
 const LikesPage = () => {
-	// const [likes, setLikes] = useState([]);
+	const [likes, setLikes] = useState([]);
 
-	// useEffect(() =>{
-	// 	const getLikes = async() =>{
-	// 		try {
-	// 			const res = await fetch("/api/users/likes", {credentials: "include"});
-	// 			const data = await res.json();
-	// 			if(data.error) throw new Error(data.error);
+	useEffect(() =>{
+		const getLikes = async() =>{
+			try {
+				const res = await fetch("/api/users/likes", {credentials: "include"});
+				const data = await res.json();
+				if(data.error) throw new Error(data.error);
 
-	// 			setLikes(data.likedBy);
-	// 		} catch (error) {
-	// 			toast.error(error.message);
-	// 		}
-	// 	};
-	// 	getLikes();
-	// }, []);
+				setLikes(data.likedBy);
+			} catch (error) {
+				toast.error(error.message);
+			}
+		};
+		getLikes();
+	}, []);
 
   return (
     <div className='relative overflow-x-auto shadow-md rounded-lg px-4'>
@@ -43,7 +43,7 @@ const LikesPage = () => {
 				</thead>
                 {/* table Body */}
 				<tbody>
-					{/* {likes.map((user, idx)=>(
+					{likes.map((user, idx)=>(
 						<tr className='bg-glass border-b' key={user.username}>
 						<td className='w-4 p-4'>
 							<div className='flex items-center'>
@@ -68,7 +68,7 @@ const LikesPage = () => {
 							</div>
 						</td>
 					</tr>
-					))} */}
+					))}
 				</tbody>
 			</table>
 		</div>
