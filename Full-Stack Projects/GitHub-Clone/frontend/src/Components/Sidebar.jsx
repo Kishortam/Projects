@@ -6,11 +6,13 @@ import { MdOutlineExplore } from "react-icons/md";
 import { PiSignInBold } from "react-icons/pi";
 import { MdEditDocument } from "react-icons/md";
 import Logout from './Logout';
-// import { useAuthContext } from '../Context/AuthContext';
+import { useAuthContext } from '../../Context/AuthContext';
+
 
 const Sidebar = () => {
-    // const {authUser} = useAuthContext();
-    const authUser = true;
+    const {authUser} = useAuthContext();
+    console.log("Authenticated user:", authUser);
+    // const authUser = true;
 
   return (
     <aside className='flex flex-col items-center min-w-12 sm:w-16 sticky top-0 left-0 h-screen py-8

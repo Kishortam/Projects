@@ -3,9 +3,10 @@ import passport from "passport";
 
 const router = express.Router();
 
+// take functions from passport github login code
 router.get("/github", passport.authenticate("github", {scope: ["user:email"]}),);
 
-// login
+// login callback
 router.get("/github/callback", passport.authenticate("github", 
     {failureRedirect: process.env.CLIENT_BASE_URL + "/login"}), 
     function(req, res) {
