@@ -24,6 +24,7 @@ cloudinary.config({
 
 const app = express(); 
 const PORT = process.env.PORT || 5000;
+const __dirname = path.resolve();
 
 // to check whats we get on browser on start
 // app.get("/", (req, res)=>{
@@ -44,6 +45,15 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/notifications", notificationRoutes);
+
+// whatever the route other than above navigate to index.html/react app
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+    app.get("*", (req, res) =>{
+        res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+    })
+}
 
 app.listen(PORT, ()=>{
     console.log(`server is running on port ${PORT}`);

@@ -75,6 +75,8 @@ before deployment:
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
 
+=> install npm install -g win-node-env (for NODE_ENV)
+
 => in server.js
 if(process.env.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname, "/frontend/dist")));
