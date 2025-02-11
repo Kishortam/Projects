@@ -1,0 +1,8 @@
+Netflix_Clone
+
+=> start with backend
+=> npm init -y, install packages express mongoose jsonwebtoken cookie-parser dotenv axios bcryptjs
+=> install nodemon -D (as devDependency)
+=> set main file, dev command with filename, type = module in package.json
+=> setup DB with mongodb
+=> create routes, models, controllers
