@@ -2,6 +2,8 @@ import User from "../Models/user.model.js";
 import bcryptjs from "bcryptjs";
 import { generateTokenAndSetCookie } from "../UTILS/generateToken.js";
 
+
+// signup function
 export const signup = async(req, res) => {
     try {
         const {email, password, username} = req.body;
@@ -67,11 +69,52 @@ export const signup = async(req, res) => {
 }
 
 
-
+// login function
 export const login = async(req, res) => {
-    res.send("login");
+    try {
+        const {email, password} = req.body;
+
+        // email or password is not present
+        if(!email || !password) {
+            return res.status(400).json({success: false, message: "All fields are required"});
+        }
+
+        // find user
+        const user = await User.findOne({email});
+        // if user not found
+        if(!user) {
+            return res.status(400).json({success: false, message: "User does not exist"});
+        }
+        // check if password is correct
+        const isPasswordCorrect = await bcryptjs.compare(password, user.password);
+        // if password is not correct
+        if(!isPasswordCorrect) {
+            return res.status(400).json({success: false, message: "Invalid credentials"});
+        }
+
+        generateTokenAndSetCookie(user._id, res);
+
+        res.status(200).json({
+            success: true, 
+            user : {
+                ...user._doc,
+                password: ""
+            }});
+    } catch (error) {
+        console.log("Error in login controller", error.message);
+        res.status(500).json({success: false, message: "Internal server error"});
+    }
 }
 
+
+// logout function
 export const logout = async(req, res) => {
-    res.send("logout");
+    try {
+        // clear the cookies
+        res.clearCookie("jwt-netflix");
+        res.status(200).json({success: true, message: "Logged out successfully"});
+    } catch (error) {
+        console.log("Error in logout controller", error.message);
+        res.status(500).json({success: false, message: "Internal server error"});
+    }
 }
