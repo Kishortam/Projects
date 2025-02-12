@@ -6,3 +6,6 @@ Netflix_Clone
 => set main file, dev command with filename, type = module in package.json
 => setup DB with mongodb
 => create routes, models, controllers
+=> add functions
+=> get API key from TMDB API site, to fetch the data.
+=> get all required API from TMDB to fetch various data
