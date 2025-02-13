@@ -5,7 +5,12 @@ Netflix_Clone
 => install nodemon -D (as devDependency)
 => set main file, dev command with filename, type = module in package.json
 => setup DB with mongodb
-=> create routes, models, controllers
+=> create routes, models, controllers for signup, login, movie, TV, and search
 => add functions
 => get API key from TMDB API site, to fetch the data.
 => get all required API from TMDB to fetch various data
+
+
+=> frontend
+=> npm create vite@latest .
+=> npm i axios lucide-react react-player react-hot-toast react-router-dom zustand
