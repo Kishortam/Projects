@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import authRoutes from "./Routes/auth.route.js";
 import movieRoutes from "./Routes/movie.route.js";
 import tvRoutes from "./Routes/tv.route.js";
+import searchRoutes from "./Routes/search.route.js";
 
 import { connectDB } from "./DB/connectDB.js";
 import { protectRoute } from "./Middleware/protectRoute.js";
@@ -26,6 +27,7 @@ app.use(cookieParser());
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/movie", protectRoute, movieRoutes);
 app.use("/api/v1/tv", protectRoute, tvRoutes);
+app.use("/api/v1/search", protectRoute, searchRoutes);
 
 
 app.listen(PORT, () => {
