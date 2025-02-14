@@ -8,4 +8,10 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  server: {
+    proxy: {
+      '/api': 'http://localhost:5000'
+    }
+  }
 })
+// proxy is we can eliminate the "http://localhost:5000" from the url and just put route
