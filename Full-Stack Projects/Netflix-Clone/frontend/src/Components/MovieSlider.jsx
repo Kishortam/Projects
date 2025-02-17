@@ -13,9 +13,9 @@ const MovieSlider = ({category}) => {
     const sliderRef = useRef(null);
 
     const formattedCategoryName = 
-    category.replaceAll("_", " ")[0].toUpperCase() + category.replaceAll("_", "").slice(1);
+    category.replaceAll("_", "")[0].toUpperCase() + category.replaceAll("_", " ").slice(1);
 
-    const formattedContentType = contentType === "Movie" ? "movie" : "TV Shows";
+    const formattedContentType = contentType === "movie" ? "Movie" : "TV Shows";
 
     useEffect(()=>{
         const getContent = async() => {
@@ -54,7 +54,7 @@ const MovieSlider = ({category}) => {
 								className='transition-transform duration-300 ease-in-out group-hover:scale-125'
 							/>
 						</div>
-						<p className='mt-2 text-center'>{item.title || item.name}</p>
+						<p className='mt-2 text-center text-white'>{item.title || item.name}</p>
 					</Link>
 				))}
 			</div>
