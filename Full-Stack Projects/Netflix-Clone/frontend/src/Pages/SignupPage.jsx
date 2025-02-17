@@ -10,7 +10,7 @@ const SignupPage = () => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
-    const {signup} = useAuthStore();  // using function from authUser.js
+    const {signup, isSigningUp} = useAuthStore();  // using function from authUser.js
 
     const handleSignUp = (e) => {
 		e.preventDefault();
@@ -81,7 +81,7 @@ const SignupPage = () => {
 							hover:bg-red-700'
 							// disabled={isSigningUp}
 						>
-							Sign Up{/* {isSigningUp ? "Loading..." : "Sign Up"} */}
+						{isSigningUp ? "Loading..." : "Sign Up"}
 					</button>
                 </form>
 

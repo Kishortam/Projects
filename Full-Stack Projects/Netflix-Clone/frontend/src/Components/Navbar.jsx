@@ -23,14 +23,14 @@ const Navbar = () => {
             </Link>
 
             {/* desktop navbar items */}
-			<div className='hidden sm:flex gap-4 items-center'>
-				<Link to="/" className='hover:underline' onClick={() => setContentType("movie")}>
+			<div className='hidden sm:flex gap-4 items-center '>
+				<Link to="/" className='hover:underline white' onClick={() => setContentType("movie")}>
 					Movies
 				</Link>
-				<Link to="/" className='hover:underline' onClick={() => setContentType("tv")}>
+				<Link to="/" className='hover:underline white' onClick={() => setContentType("tv")}>
 				    TV Shows
 				</Link>
-				<Link to="/history" className='hover:underline'>
+				<Link to="/history" className='hover:underline white'>
 					Search History
 				</Link>
 			</div>
@@ -38,7 +38,7 @@ const Navbar = () => {
 
         <div className='flex gap-4 items-center z-50'>
 			<Link to={"/search"}>
-				<Search className='size-6 cursor-pointer' />
+				<Search className='size-6 cursor-pointer white' />
 			</Link>
 			<img src={user.image} alt='Avatar' className='h-8 rounded cursor-pointer' />
 			<LogOut className='size-6 cursor-pointer' onClick={logout} />

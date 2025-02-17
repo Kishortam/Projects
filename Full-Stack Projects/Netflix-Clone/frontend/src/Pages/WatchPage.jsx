@@ -193,7 +193,7 @@ const WatchPage = () => {
 											alt='Poster path'
 											className='w-full h-auto rounded-md'
 										/>
-										<h4 className='mt-2 text-lg font-semibold'>{content.title || content.name}</h4>
+										<h4 className='mt-2 text-lg font-semibold white'>{content.title || content.name}</h4>
 									</Link>
 								);
 							})}
