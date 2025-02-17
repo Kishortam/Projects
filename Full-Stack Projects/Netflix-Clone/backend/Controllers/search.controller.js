@@ -1,5 +1,6 @@
 import User from "../Models/user.model.js";
-import { fetchFromTMDB } from "../services/tmdb.service.js";
+import { fetchFromTMDB } from "../SERVICES/tmdb.service.js";
+
 
 // functions are same, only search type is different, means change the query in url.
 
