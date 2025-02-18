@@ -111,7 +111,7 @@ const SearchPage = () => {
 											alt={result.title || result.name}
 											className='w-full h-auto rounded'
 										/>
-										<h2 className='mt-2 text-xl font-bold'>{result.title || result.name}</h2>
+										<h2 className='mt-2 text-xl font-bold white'>{result.title || result.name}</h2>
 									</Link>
 								)}
 							</div>
