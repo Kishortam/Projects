@@ -2,14 +2,12 @@ import React from "react";
 import "./MyWork.css";
 import theme_pattern from "../../assets/theme_pattern.svg";
 import arrow_icon from "../../assets/arrow_icon.svg";
-// import music_player from "../../assets/Music_Player.png";
 import image_search from "../../assets/Image_Search.png";
-// import dropdown_menu from "../../assets/DropDown_Menu.png";
 import Netflix_home from "../../assets/Netflix_homescreen.png";
 import Github_home from "../../assets/Github_homescreen.png";
 import Twitter_home from "../../assets/Twitter_homescreen.png";
 import YT from "../../assets/YT1.png";
-import portfolio from "../../assets/Portfolio.png";
+import portfolio from "../../assets/portfolio.png";
 
 const MyWork = () => {
   return (
@@ -66,7 +64,7 @@ const MyWork = () => {
           <div className="layer">
             <h3>Portfolio</h3>
             <p>This portfolio website, built with React, serves as a comprehensive introduction to my skills, projects and experience. <br /> Visit App Now.</p>
-            <a href="https://netflix-clone-s7qv.onrender.com/" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
+            <a href="https://portfolio-kishor.onrender.com" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
           </div>
         </div>
 
