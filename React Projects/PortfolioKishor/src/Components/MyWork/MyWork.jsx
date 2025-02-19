@@ -9,6 +9,7 @@ import Netflix_home from "../../assets/Netflix_homescreen.png";
 import Github_home from "../../assets/Github_homescreen.png";
 import Twitter_home from "../../assets/Twitter_homescreen.png";
 import YT from "../../assets/YT1.png";
+import portfolio from "../../assets/Portfolio.png";
 
 const MyWork = () => {
   return (
@@ -55,16 +56,16 @@ const MyWork = () => {
           <div className="layer">
             <h3>Youtube</h3>
             <p>This YouTube clone app is built using ReactJS. <br /> Visit App Now.</p>
-            <a href="https://netflix-clone-s7qv.onrender.com/" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
+            <a href="https://youtube-react-s5sb.onrender.com" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
           </div>
         </div>
 
         <div className="work">
-          <img src={Netflix_home} alt="" />
+          <img src={portfolio} alt="" />
           {/* <!-- when we click on my work cards, the related info will cover that particular card --> */}
           <div className="layer">
-            <h3>Netflix</h3>
-            <p>The Netflix app, built using full-stack technology, lets you stream movies and TV shows across a variety of genres. <br /> Visit App Now.</p>
+            <h3>Portfolio</h3>
+            <p>This portfolio website, built with React, serves as a comprehensive introduction to my skills, projects and experience. <br /> Visit App Now.</p>
             <a href="https://netflix-clone-s7qv.onrender.com/" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
           </div>
         </div>
@@ -75,7 +76,7 @@ const MyWork = () => {
           <div className="layer">
             <h3>Image Search</h3>
             <p>This JavaScript-powered app lets you search for images online. <br /> Visit App Now.</p>
-            <a href="https://netflix-clone-s7qv.onrender.com/" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
+            <a href="https://github.com/Kishortam/Projects/tree/main/JS%20Projects/Image%20Search%20Engine" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
           </div>
         </div>
       </div>
