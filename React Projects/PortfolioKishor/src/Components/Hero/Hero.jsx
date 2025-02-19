@@ -11,7 +11,7 @@ const Hero = () => {
         <p>Passionate software engineering enthusiast at Scaler Academy</p>
         <div className="hero-action">
             <div className="hero-connect"> <AnchorLink className='anchor-link' offset={50} href='#contact'>Connect with Me</AnchorLink></div>
-            <div className="hero-resume"><a href="./CV/Kishor_Tambe_CV1.pdf" target='blank'>My Resume</a></div>
+            <div className="hero-resume"><a href="./CV/My Resume.pdf" target='blank'>My Resume</a></div>
         </div>
     </div>
   )

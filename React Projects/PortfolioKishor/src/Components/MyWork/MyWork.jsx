@@ -2,9 +2,13 @@ import React from "react";
 import "./MyWork.css";
 import theme_pattern from "../../assets/theme_pattern.svg";
 import arrow_icon from "../../assets/arrow_icon.svg";
-import music_player from "../../assets/Music_Player.png";
+// import music_player from "../../assets/Music_Player.png";
 import image_search from "../../assets/Image_Search.png";
-import dropdown_menu from "../../assets/DropDown_Menu.png";
+// import dropdown_menu from "../../assets/DropDown_Menu.png";
+import Netflix_home from "../../assets/Netflix_homescreen.png";
+import Github_home from "../../assets/Github_homescreen.png";
+import Twitter_home from "../../assets/Twitter_homescreen.png";
+import YT from "../../assets/YT1.png";
 
 const MyWork = () => {
   return (
@@ -16,12 +20,52 @@ const MyWork = () => {
 
       <div className="container">
         <div className="work">
-          <img src={music_player} alt="" />
+          <img src={Twitter_home} alt="" />
           {/* <!-- when we click on my work cards, the related info will cover that particular card --> */}
           <div className="layer">
-            <h3>Social Media App</h3>
-            <p>The app connects you to the talented people around the world. download it from play store.</p>
-            <a href="#"> <i class="fas fa-external-link-alt"></i></a>
+            <h3>Twitter</h3>
+            <p>This X (or Twitter) clone, built using the MERN stack, enables users to create, like, and delete posts, as well as follow other users. <br /> Visit App Now. </p>
+            <a href="https://twitter-clone-eugj.onrender.com/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <div className="work">
+          <img src={Github_home} alt="" />
+          {/* <!-- when we click on my work cards, the related info will cover that particular card --> */}
+          <div className="layer">
+            <h3>Github</h3>
+            <p>This GitHub clone app, built with the MERN stack, allows users to view their own and other users' GitHub repositories after logging in. <br /> Visit App Now. </p>
+            <a href="https://github-app-o8fq.onrender.com/" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <div className="work">
+          <img src={Netflix_home} alt="" />
+          {/* <!-- when we click on my work cards, the related info will cover that particular card --> */}
+          <div className="layer">
+            <h3>Netflix</h3>
+            <p>The Netflix app, built using full-stack technology, lets you stream movies and TV shows across a variety of genres. <br /> Visit App Now.</p>
+            <a href="https://netflix-clone-s7qv.onrender.com/" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <div className="work">
+          <img src={YT} alt="" />
+          {/* <!-- when we click on my work cards, the related info will cover that particular card --> */}
+          <div className="layer">
+            <h3>Youtube</h3>
+            <p>This YouTube clone app is built using ReactJS. <br /> Visit App Now.</p>
+            <a href="https://netflix-clone-s7qv.onrender.com/" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <div className="work">
+          <img src={Netflix_home} alt="" />
+          {/* <!-- when we click on my work cards, the related info will cover that particular card --> */}
+          <div className="layer">
+            <h3>Netflix</h3>
+            <p>The Netflix app, built using full-stack technology, lets you stream movies and TV shows across a variety of genres. <br /> Visit App Now.</p>
+            <a href="https://netflix-clone-s7qv.onrender.com/" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
           </div>
         </div>
 
@@ -29,25 +73,15 @@ const MyWork = () => {
           <img src={image_search} alt="" />
           {/* <!-- when we click on my work cards, the related info will cover that particular card --> */}
           <div className="layer">
-            <h3>Social Media App</h3>
-            <p>The app connects you to the talented people around the world. download it from play store.</p>
-            <a href="#"> <i class="fas fa-external-link-alt"></i></a>
-          </div>
-        </div>
-
-        <div className="work">
-          <img src={dropdown_menu} alt="" />
-          {/* <!-- when we click on my work cards, the related info will cover that particular card --> */}
-          <div className="layer">
-            <h3>Social Media App</h3>
-            <p>The app connects you to the talented people around the world. download it from play store.</p>
-            <a href="#"> <i class="fas fa-external-link-alt"></i></a>
+            <h3>Image Search</h3>
+            <p>This JavaScript-powered app lets you search for images online. <br /> Visit App Now.</p>
+            <a href="https://netflix-clone-s7qv.onrender.com/" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
           </div>
         </div>
       </div>
 
       <div className="show-more">
-        <p>Show More</p>
+        <p><a href="https://github.com/Kishortam/Projects" target="_blank">Show More</a></p>
         <img src={arrow_icon} alt="" />
       </div>
     </div>
