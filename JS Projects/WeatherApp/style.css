@@ -3,18 +3,20 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #222;
+    background-color: #232323;
 }
 .card{
     width: 90%;
     max-width: 470px;
     background: linear-gradient(135deg, #00feba, #5b548a);
     color: #fff;
-    margin: 100px auto 0;
+    margin: 25px auto 0;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
+    box-shadow: 1px 1px 10px 3px rgb(116, 187, 215);
 }
+
 .search{
     width: 100%;
     display: flex;
