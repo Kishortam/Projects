@@ -9,7 +9,7 @@ const Home = ({sidebar}) => {
 
   return (
     <>
-    <Sidebar sidebar = {sidebar} category={category} setCategory={setCategory}/>
+    <Sidebar sidebar={sidebar} category={category} setCategory={setCategory}/>
     <div className={`container ${sidebar?"" : 'large-conatiner'}`}>
       <Feed category={category}/>
     </div>
