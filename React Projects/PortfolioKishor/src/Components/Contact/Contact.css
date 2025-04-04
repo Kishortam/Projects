@@ -49,6 +49,7 @@
 .left p a{
     color: #d8d8d8;
     font-size: 19px;
+    text-decoration: none;
 }
 
 .right{
@@ -142,6 +143,7 @@
 }
 .btn2{
     text-align: center;
+    text-decoration: none;
 }
 .contact-right form{
     width: 100%;

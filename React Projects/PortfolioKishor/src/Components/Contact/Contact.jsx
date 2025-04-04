@@ -53,7 +53,8 @@ const Contact = () => {
                         <a href="https://scaler-co.slack.com/team/U04NMJU3XB5" target="blank"><i class="fab fa-slack"></i></a>  
                         <a href="https://wa.me/9892623219" target="blank"><i class="fab fa-whatsapp"></i></a>                      
                     </div>
-                    <a href="./CV/Kishor_CV.pdf" download className="btn btn2">Download CV</a>
+                    {/* Visitors can download my resume, uploaded on google drive */}
+                    <a href="https://drive.google.com/uc?export=download&id=16DeBrjuGyTrJ7HQ65ug7nMqrUTfdhHX2" className="btn btn2">Download CV</a>
             </div>
 
             <form onSubmit={onSubmit} className="right">

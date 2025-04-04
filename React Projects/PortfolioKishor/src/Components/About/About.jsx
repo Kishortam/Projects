@@ -17,17 +17,20 @@ const About = () => {
             </div>
             <div className="right">
                 <div className="about-para">
-                    <p>Hello! I'm Kishor Tambe, a passionate software developer with over 2 years of experience in building dynamic and responsive web applications. 
-                        I hold Software Developer degree from Scaler Academy.</p>
+                    <p>Hello, I'm Kishor Tambe, a passionate and dedicated software developer with a strong foundation in full-stack development. I completed a comprehensive Software Development course from Scaler Academy, where I gained expertise in Data Structures and Algorithms (DSA), MERN Stack, HTML, CSS, JavaScript, MySQL, and System Design.
+                    </p>
 
-                    <p>My technical expertise includes proficiency in JavaScript, React, Node.js, and Java.
-                        I have a strong foundation in front-end development, coupled with a robust understanding of back-end systems and databases.</p>
+                    <p>Additionally, I completed a MERN Stack Web Development course from CodeKaro in 2023, which provided me with practical, hands-on experience. Leveraging the skills I acquired, I developed clones of popular applications like X, GitHub, Netflix, and YouTube. I also expanded my knowledge through various YouTube tutorials, constantly learning and improving my skills.
+                    I am deeply passionate about technology and continuously strive to learn and adopt new tools and frameworks.
+                    </p>
 
-                    <p>I am deeply passionate about technology and continuously strive to learn and adopt new tools and frameworks.
-                        I believe in the power of technology to solve real-world problems and enhance the user experience. 
-                        Feel free to browse through my portfolio to see my work, and don't hesitate to reach out if you'd like to collaborate or just chat about tech!</p>
+                    <p>
+                    I am now seeking an entry-level or fresher software developer role where I can apply my skills, contribute to meaningful projects, and continue growing as a developer. I am excited to bring my dedication and problem-solving abilities to a dynamic team.
+                    Feel free to browse through my portfolio to see my work, and don't hesitate to reach out if you'd like to collaborate or just chat about tech!
+                    </p>
 
-                    <p>Let's connect and create something amazing together!</p>
+                    <p>Let's connect and create something amazing together!
+                    </p>
                 </div>
 
                 <div className="info">

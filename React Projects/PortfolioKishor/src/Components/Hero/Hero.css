@@ -62,6 +62,7 @@
 }
 .hero-resume a {
   color: white;
+  text-decoration: none;
 }
 .hero-resume:hover {
   border-color: #b415ff;
