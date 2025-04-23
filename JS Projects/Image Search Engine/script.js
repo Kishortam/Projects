@@ -28,7 +28,7 @@ async function searchImages(){
         searchResult.innerHTML = "";
     }
 
-    const results = data.results;
+    const results = data.results; // getting results
     results.map((result) => {
         const image = document.createElement("img"); // creating img element
         image.src = result.urls.small;  // src of img 
