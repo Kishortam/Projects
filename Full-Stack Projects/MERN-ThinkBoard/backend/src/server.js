@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 
 import notesRoutes from "./Routes/notesRoutes.js"
 import { connectdb } from './config/db.js';
+import rateLimiter from './Middleware/rateLimiter.js';
 
 dotenv.config();
 const app = express();
@@ -15,17 +16,26 @@ const PORT = process.env.PORT || 5001
 
 
 // middleware
-app.use(express.json());
+app.use(express.json()); //this middleware is used to parse the request body => req.body
+app.use(rateLimiter);
 
 // routes middleware      (/api/notes) is prefix
 app.use("/api/notes", notesRoutes);  
 
 
-app.listen(PORT, ()=>{
-    console.log("Sever started on port", PORT);
-    connectdb();
+
+// production ready code, where database is connected fisrt and then server is started
+connectdb().then(()=>{
+    app.listen(PORT, ()=>{
+        console.log("Server started on port", PORT);
+    })
 })
 
 
-// mongoDB connection string
-// mongodb+srv://kishortam:GWb2pE9uc3WZVaVc@cluster0.kt3jj4j.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+// Basic code of listening the server
+// app.listen(PORT, ()=>{
+//     console.log("Sever started on port", PORT);
+//     connectdb();
+// })
+
+
