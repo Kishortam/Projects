@@ -14,6 +14,9 @@ const PORT = process.env.PORT || 5001
 // })
 
 
+// middleware
+app.use(express.json());
+
 // routes middleware      (/api/notes) is prefix
 app.use("/api/notes", notesRoutes);  
 
