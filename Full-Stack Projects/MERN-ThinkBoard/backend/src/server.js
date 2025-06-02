@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import path from 'path'
 
 import notesRoutes from "./Routes/notesRoutes.js"
 import { connectdb } from './config/db.js';
@@ -10,6 +11,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001
 
+// deployment purpose
+const __dirname = path.resolve();
+
 // Basic code or example of using express
 // app.get("/api/notes", (req, res)=>{
 //     res.send("Server is running and displayed on browser")
@@ -17,13 +21,20 @@ const PORT = process.env.PORT || 5001
 
 
 // middleware
-app.use(cors({origin: "http://localhost:5173"}));  //this middleware is used to allow cross origin requests
+if(process.env.NODE_ENV === "production"){
+    app.use(cors({origin: "https://localhost:5173"})); //this middleware is used to allow cross origin requests
+}
 app.use(express.json()); //this middleware is used to parse the request body => req.body
 app.use(rateLimiter);
 
 
 // routes middleware      (/api/notes) is prefix
-app.use("/api/notes", notesRoutes);  
+app.use("/api/notes", notesRoutes); 
+
+
+// deployment code
+app.use(express.static(path.join(__dirname, "../frontend/dist"))); //this middleware is used to serve static files
+app.get("*", (req, res)=>{res.sendFile(path.join(__dirname, "../frontend/dist/index.html"))}); 
 
 
 
