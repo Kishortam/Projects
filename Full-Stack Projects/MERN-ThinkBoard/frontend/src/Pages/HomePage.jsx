@@ -2,9 +2,11 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+
 import Navbar from '../Components/Navbar'
 import RateLimitedUI from '../Components/RateLimitedUI';
 import NoteCard from '../Components/NoteCard';
+import api from '../Lib/axios';
 
 
 const HomePage = () => {
@@ -15,7 +17,9 @@ const HomePage = () => {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/api/notes");
+        // after creating the api instance, we can use it to make the request
+        // const response = await axios.get("http://localhost:5001/api/notes");  // old code, we have created the api instance 
+        const response = await api.get("/notes");
         console.log(response.data);
         setNotes(response.data);
         setIsRateLimited(false);
