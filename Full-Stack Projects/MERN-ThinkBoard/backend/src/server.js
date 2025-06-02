@@ -23,9 +23,7 @@ const __dirname = path.resolve();
 // middleware
 if(process.env.NODE_ENV === "production"){
     app.use(cors({
-        origin:"https://thinkboard-xb6x.onrender.com/",
-        credentials: true,
-        methods: ["GET", "POST", "PUT", "DELETE"]
+        origin:"http://localhost:5173",
     })); //this middleware is used to allow cross origin requests
 }
 app.use(express.json()); //this middleware is used to parse the request body => req.body
