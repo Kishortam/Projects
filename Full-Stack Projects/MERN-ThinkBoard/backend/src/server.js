@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 import notesRoutes from "./Routes/notesRoutes.js"
 import { connectdb } from './config/db.js';
@@ -16,8 +17,10 @@ const PORT = process.env.PORT || 5001
 
 
 // middleware
+app.use(cors({origin: "http://localhost:5173"}));  //this middleware is used to allow cross origin requests
 app.use(express.json()); //this middleware is used to parse the request body => req.body
 app.use(rateLimiter);
+
 
 // routes middleware      (/api/notes) is prefix
 app.use("/api/notes", notesRoutes);  
