@@ -8,6 +8,7 @@ import Github_home from "../../assets/Github_homescreen.png";
 import Twitter_home from "../../assets/Twitter_homescreen.png";
 import YT from "../../assets/YT1.png";
 import portfolio from "../../assets/portfolio.png";
+import thinkBoard from "../../assets/thinkBoard1.png";
 
 const MyWork = () => {
   return (
@@ -59,12 +60,12 @@ const MyWork = () => {
         </div>
 
         <div className="work">
-          <img src={portfolio} alt="" />
+          <img src={thinkBoard} alt="" />
           {/* <!-- when we click on my work cards, the related info will cover that particular card --> */}
           <div className="layer">
-            <h3>Portfolio</h3>
-            <p>This portfolio website, built with React, serves as a comprehensive introduction to my skills, projects and experience. <br /> Visit App Now.</p>
-            <a href="https://portfolio-kishor.onrender.com" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
+            <h3>Think Board</h3>
+            <p>This Full-stack application is design to enable users to create, manage and organize notes seamlessly <br /> Visit App Now.</p>
+            <a href="https://thinkboard-xb6x.onrender.com" target="_blank"> <i class="fas fa-external-link-alt"></i></a>
           </div>
         </div>
 
