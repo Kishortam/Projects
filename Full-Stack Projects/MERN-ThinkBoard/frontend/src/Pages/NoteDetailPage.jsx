@@ -30,6 +30,7 @@ const NoteDetailPage = () => {
     fetchNote();
   }, [id]);
 
+  // delete the note
   const handleDelete = async () => {
     if (!window.confirm("Are you sure you want to delete this note?")) return;
 
@@ -43,6 +44,7 @@ const NoteDetailPage = () => {
     }
   };
 
+  // save the note
   const handleSave = async () => {
     if (!note.title.trim() || !note.content.trim()) {
       toast.error("Please add a title or content");

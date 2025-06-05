@@ -1,0 +1,66 @@
+Think Board Project
+
+Application Folders => backend & frontend
+
+1. backend =>
+- npm init -y     (it will gives us package files in backend folder)
+- npm install express@4.18.2     (it will gives us package-lock.json and node modules)
+- in package.json add "type: module", below script, to use import module.
+- to run initial code in terminal type: node server.js   (server.js is a file name)
+- to run code on "npm run dev" command:, made changes in script "dev":"node server.js"
+- npm install nodemon -D     (to restart server automatically whenever we update code and render on browser)
+- When you install nodemon as devdependency, to see in effect, change "dev":"nodemon server.js"
+- It is always better practice to add all backend files into "src" folder. but if you create src folder and add all files into it, make changes in package.json by adding files path with src prefix like "src/server.js"
+- change "main":"src/server.js" in package.json 
+- set or create basics of routes and controllers.
+- set up database using MongoDB => create new application => new cluster => deployment => create a database user => choose connection method => drivers => copy the connection string and paste somewhere => select network access in menu => add new IP address, so we can access from anywhere 
+- npm install mongoose      (note: before installation, kill terminal)
+- create db file and create function named "connectDB" and use connection string there or process.env.MONGO_URI, call this function into server.js.
+- add database/application name in connection string like in between, mongodb.net/notes_db?retryWrites
+- store your connection string into .env file.
+- npm install dotenv   (to get environmental variables)
+- npm install cors          (import cors in server.js)
+- create models folder, to create a schema.
+- in controller, create functions and try API request if its working or not using Postman. in Postman, enter HTTP method like get, post, put or delete and enter URL of server. check if req is accepting and responding to it. 
+- if the request is Post, check if data is added in MongoDB database.
+
+
+=> To rate limiting with upstash
+- go to upstash.com -> login -> create a database -> name
+- npm i @upstash/ratelimit@2.0.5 @upstash/redis@1.34.9      in terminal
+- create middleware function to limit the request, in our case we can only accept 10 requests per 20 sec, above that, it will throw error.
+
+2. frontend =>
+- npm create vite@latest .       (to create vite app in frontend)
+- npm install                    (to install all dependencies) 
+- npm run dev                    (to run app)
+- npm i react-router
+- npm i react-hot-toast           (for toast notification)
+- add BrowserRouter to main.js
+- create pages 
+- add toaster to main.js below </app>
+- install tailwind css -> tailwind css -> docs -> framework guides -> vite => copy
+- install daisy UI       (tailwind css library, it has ready components with less code.)
+- visit daisy UI -> how to use -> copy paste 
+- to add theme to application, go to theme section in daisyui and select theme. in tailwind.config.js  add 
+daisyui: {
+    themes: ["forest"],  // theme name
+  },
+and then in app.jsx, in main div add data-theme="theme_name"
+- npm i lucide-react         (for icons)
+- npm i axios 
+
+- create pages, components etc.
+
+=> for deployement: take .gitignore file to root of a application/folder, create or add .env file there.
+- in root, npm init -y (it will give you a json file). delete node modules from both backend and frontend.
+- in new json file add =>
+"scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend"
+  },
+- then run, "npm run build" in root terminal, it will install all dependencies.
+- make few changes in backend/server.js for development purpose.
+- also make changes in frontend/lib/axios.
+
+- to run type "npm run start" in root terminal.
+ 

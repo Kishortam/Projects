@@ -26,6 +26,7 @@ if(process.env.NODE_ENV === "production"){
         origin:"http://localhost:5173",
     })); //this middleware is used to allow cross origin requests
 }
+
 app.use(express.json()); //this middleware is used to parse the request body => req.body
 app.use(rateLimiter);
 

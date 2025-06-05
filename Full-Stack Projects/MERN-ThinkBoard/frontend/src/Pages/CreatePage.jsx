@@ -12,6 +12,7 @@ const CreatePage = () => {
 
   const navigate = useNavigate();
 
+  // handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -25,9 +26,7 @@ const CreatePage = () => {
       const response = await api.post("/notes", { title, content });
       // console.log(response.data);
       toast.success("Note created successfully");
-      navigate("/");
-      // setNotes(response.data);
-      // setLoading(false);
+      navigate("/");    // once the note is created, navigate to the home page
     } catch (error) {
       console.log("Error creating note:", error);
       if (error.response?.status === 429) {
